@@ -96,10 +96,9 @@
             </a>
 
             <div class="hidden md:flex items-center gap-9 text-xs font-semibold tracking-[0.22em] uppercase text-copper-200/90">
-                <a href="#nabizime" class="hover:text-copper-400 transition">Co nabízíme</a>
-                <a href="#produkty" class="hover:text-copper-400 transition">Sortiment</a>
+                <a href="#sortiment" class="hover:text-copper-400 transition">Sortiment</a>
+                <a href="#vanoce-trhy" class="hover:text-copper-400 transition text-copper-300">Vánoční trhy</a>
                 <a href="#b2b" class="hover:text-copper-400 transition">B2B</a>
-                <a href="#vanoce-trhy" class="hover:text-copper-400 transition">Vánoční trhy</a>
                 <a href="#kontakt" class="hover:text-copper-400 transition">Kontakt</a>
             </div>
 
@@ -126,11 +125,11 @@
             <button type="button" onclick="setSlide(2)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-200/40 hover:bg-copper-300 transition-all"></button>
         </div>
 
-        <!-- SPODNÍ TROJDÍLNÁ LIŠTA: CO NABÍZÍME | B2B | VÁNOČNÍ TRHY -->
+        <!-- SPODNÍ TROJDÍLNÁ LIŠTA: SORTIMENT | B2B | VÁNOČNÍ TRHY -->
         <div class="relative z-20 w-full flex justify-end">
             <div class="grid grid-cols-3 w-full md:w-auto md:min-w-[640px] shadow-2xl">
-                <a href="#nabizime" class="bg-lid-800 hover:bg-lid-700 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-l border-copper-400/20 flex items-center justify-center">
-                    Co nabízíme
+                <a href="#sortiment" class="bg-lid-800 hover:bg-lid-700 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-l border-copper-400/20 flex items-center justify-center">
+                    Sortiment
                 </a>
                 <a href="#b2b" class="bg-copper-600 hover:bg-copper-500 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-copper-400/20 flex items-center justify-center">
                     B2B
@@ -142,14 +141,15 @@
         </div>
     </header>
 
-    <!-- 2. HLAVNÍ SEKCE: CO NABÍZÍME & DÁRKOVÉ BALENÍ S POSUVNÍKEM KUSOVÉ CENY -->
-    <section id="nabizime" class="relative py-24 md:py-32 bg-lid-900 overflow-hidden border-t border-copper-400/15">
+    <!-- 2. SEKCE SORTIMENT: DÁRKOVÉ BALENÍ + PÁS JEDNOTLIVÝCH PRODUKTŮ -->
+    <section id="sortiment" class="relative pt-24 md:pt-32 pb-20 bg-lid-900 overflow-hidden border-t border-copper-400/15">
         <div class="pointer-events-none select-none absolute -top-6 right-0 text-[11vw] font-serif font-bold uppercase text-copper-400/[0.04] leading-none whitespace-nowrap">
-            HONIGKAMMER EDITION
+            HONIGKAMMER SORTIMENT
         </div>
 
         <div class="max-w-7xl mx-auto px-6 md:px-14">
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-0">
+            <!-- Dárkové balení s kalkulačkou kusové ceny -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-0 mb-24">
                 
                 <!-- PRAVÁ STRANA: Fotografie -->
                 <div class="w-full lg:w-7/12 relative z-10">
@@ -163,12 +163,12 @@
 
                 <!-- LEVÁ STRANA: Karta s posuvníkem a cenou za kus -->
                 <div class="w-full lg:w-6/12 lg:-mr-16 relative z-20 bg-lid-950/95 backdrop-blur-md border border-copper-400/30 p-8 md:p-12 shadow-2xl">
-                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Co nabízíme</span>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Sortiment — Dárková edice</span>
                     <h2 class="font-serif text-4xl md:text-5xl text-copper-200 font-semibold leading-tight mb-4">
                         Dárkové balení Honigkammer
                     </h2>
                     <p class="text-copper-200/80 text-sm leading-relaxed mb-6 font-light">
-                        Reprezentativní dárkové balení. Kombinace poctivého medu a ručně odlévaných svíček ze včelího vosku v dřevité vlně. Posuňte jezdcem a podívejte se, jak s počtem kusů klesá cena za 1 balení:
+                        Reprezentativní dárkové balení v barvách našeho originálního víčka. Kombinace poctivého medu a ručně odlévaných svíček ze včelího vosku v dřevité vlně. Posuňte jezdcem a podívejte se, jak s počtem kusů klesá cena za 1 balení:
                     </p>
 
                     <!-- Posuvník přímo u dárkového balení -->
@@ -222,43 +222,41 @@
                             Přidat do poptávky
                         </button>
                         <a href="#b2b" class="text-xs uppercase tracking-[0.2em] text-copper-300 hover:text-copper-200 px-3 py-3 border-b border-copper-400/40">
-                            Firemní B2B nabídka →
+                            Firemní B2B odběr →
                         </a>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
 
-    <!-- 3. HORIZONTÁLNÍ PÁS PRODUKTŮ -->
-    <section id="produkty" class="py-24 bg-lid-950 border-t border-copper-400/15">
-        <div class="max-w-7xl mx-auto px-6 md:px-14 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Sortiment</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-copper-200">Jednotlivé produkty</h2>
-            </div>
-            <div class="flex items-center gap-3 self-start md:self-auto">
-                <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60 mr-2">Posunout pás</span>
-                <button type="button" onclick="scrollGallery(-1)" class="w-12 h-12 border border-copper-400/40 hover:bg-copper-400 hover:text-lid-950 text-copper-300 flex items-center justify-center transition">
-                    ←
-                </button>
-                <button type="button" onclick="scrollGallery(1)" class="w-12 h-12 border border-copper-400/40 hover:bg-copper-400 hover:text-lid-950 text-copper-300 flex items-center justify-center transition">
-                    →
-                </button>
+            <!-- Nadpis pro pás jednotlivých produktů v rámci Sortimentu -->
+            <div class="pt-12 border-t border-copper-400/15 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Stálá nabídka</span>
+                    <h3 class="font-serif text-3xl md:text-5xl text-copper-200">Jednotlivé produkty a rukodělná tvorba</h3>
+                </div>
+                <div class="flex items-center gap-3 self-start md:self-auto">
+                    <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60 mr-2">Posunout pás</span>
+                    <button type="button" onclick="scrollGallery(-1)" class="w-12 h-12 border border-copper-400/40 hover:bg-copper-400 hover:text-lid-950 text-copper-300 flex items-center justify-center transition">
+                        ←
+                    </button>
+                    <button type="button" onclick="scrollGallery(1)" class="w-12 h-12 border border-copper-400/40 hover:bg-copper-400 hover:text-lid-950 text-copper-300 flex items-center justify-center transition">
+                        →
+                    </button>
+                </div>
             </div>
         </div>
 
+        <!-- Horizontální pás karet -->
         <div id="product-rail" class="flex gap-7 overflow-x-auto no-scrollbar px-6 md:px-14 pb-6 snap-x snap-mandatory">
             
             <!-- Karta 1 -->
-            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-950 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
                 <div>
                     <div class="aspect-[4/3] bg-lid-800 mb-6 overflow-hidden border border-copper-400/15 relative">
                         <img src="img/svicky-prirodni.jpg" alt="Svíčky ze včelího vosku" class="w-full h-full object-cover">
                         <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">100% Včelí vosk</span>
                     </div>
-                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Reliéfní svíčky z vosku</h3>
+                    <h4 class="font-serif text-2xl text-copper-200 mb-2">Reliéfní svíčky z vosku</h4>
                     <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Ručně odlévané svíčky s detailními motivy včelí plástve, růže či veverky. Přirozená medová vůně.</p>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
@@ -270,13 +268,13 @@
             </div>
 
             <!-- Karta 2 -->
-            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-950 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
                 <div>
                     <div class="aspect-[4/3] bg-lid-800 mb-6 overflow-hidden border border-copper-400/15 relative">
                         <img src="img/svicka-medved.jpg" alt="Svíčka medvěd v dutině a oříšek" class="w-full h-full object-cover">
                         <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">Dárkové motivy</span>
                     </div>
-                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Medvěd v kmeni & Oříšek</h3>
+                    <h4 class="font-serif text-2xl text-copper-200 mb-2">Medvěd v kmeni & Oříšek</h4>
                     <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Detailní plastické odlitky z čistého včelího vosku – medvídek v dutině stromu nebo spící zvířátko.</p>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
@@ -288,13 +286,13 @@
             </div>
 
             <!-- Karta 3 -->
-            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-950 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
                 <div>
                     <div class="aspect-[4/3] bg-lid-800 mb-6 flex items-center justify-center border border-copper-400/15 relative">
                         <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60">Foto sklenice brzy</span>
                         <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950 px-2.5 py-1 text-copper-400">Květový</span>
                     </div>
-                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Květový a pastovaný med</h3>
+                    <h4 class="font-serif text-2xl text-copper-200 mb-2">Květový a pastovaný med</h4>
                     <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Jarní nektar ze sadů a luk, šetrně míchaný do krémové konzistence i klasický tekutý.</p>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
@@ -306,13 +304,13 @@
             </div>
 
             <!-- Karta 4 -->
-            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-950 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
                 <div>
                     <div class="aspect-[4/3] bg-lid-800 mb-6 flex items-center justify-center border border-copper-400/15 relative">
                         <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60">Foto sklenice brzy</span>
                         <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950 px-2.5 py-1 text-copper-400">Medovicový</span>
                     </div>
-                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Lesní medovicový med</h3>
+                    <h4 class="font-serif text-2xl text-copper-200 mb-2">Lesní medovicový med</h4>
                     <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Tmavý med s výraznou minerální chutí a pomalou krystalizací pod naším měděným víčkem.</p>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
@@ -324,13 +322,13 @@
             </div>
 
             <!-- Karta 5 -->
-            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-950 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
                 <div>
                     <div class="aspect-[4/3] bg-lid-800 mb-6 overflow-hidden border border-copper-400/15 relative">
                         <img src="img/fantasy-figurky.jpg" alt="Ručně vyráběné fantasy figurky" class="w-full h-full object-cover">
                         <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">Rukodělný originál</span>
                     </div>
-                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Autorské fantasy figurky</h3>
+                    <h4 class="font-serif text-2xl text-copper-200 mb-2">Autorské fantasy figurky</h4>
                     <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Ručně tvoření lesní skřítci a bytosti s propracovanými detaily. Každý kus je neopakovatelný originál.</p>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
@@ -344,96 +342,193 @@
         </div>
     </section>
 
-    <!-- 4. B2B & VÁNOČNÍ TRHY -->
-    <section id="b2b" class="grid grid-cols-1 lg:grid-cols-12 border-t border-copper-400/20">
-        
-        <!-- Levá polovina: Firemní B2B -->
-        <div class="lg:col-span-7 bg-lid-900 p-8 md:p-16 lg:p-20 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-copper-400/20">
-            <div>
-                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-3">Pro firmy (B2B)</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-copper-200 mb-4">Firemní dárky, které neskončí v koši</h2>
-                <p class="text-sm text-copper-200/75 leading-relaxed mb-8 max-w-xl">
-                    Připravíme dárková balení na míru v barvách Honigkammer s dřevitou vlnou a visačkou či etiketou vaší společnosti. Daňově uznatelný propagační předmět do 500 Kč bez DPH.
-                </p>
-
-                <!-- B2B blok 1: Včely do firem -->
-                <div class="bg-lid-950 border-l-2 border-copper-400 p-6 md:p-8 mb-8 shadow-xl">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Firemní včelstva na klíč</span>
-                    <h3 class="font-serif text-2xl md:text-3xl text-copper-200 mb-3">
-                        „Chcete stovky tisíc zaměstnankyň za cenu jedné osoby v kosmonautském?“
-                    </h3>
-                    <p class="text-xs md:text-sm text-copper-200/75 leading-relaxed mb-5">
-                        Umístíme a budeme kompletně obsluhovat včelí úly přímo na pozemku nebo střeše vaší firmy. Bez starostí, s pravidelným servisem včelaře a vlastní sklizní medu pod vaší firemní značkou.
+    <!-- 3. PRIORITNÍ SEKCE: PRO POŘADATELE VÁNOČNÍCH A FARMÁŘSKÝCH TRHŮ (S VLASTNÍM FORMULÁŘEM) -->
+    <section id="vanoce-trhy" class="py-24 md:py-32 bg-lid-800 border-t-2 border-copper-400/40 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-14">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Levá část: Informace a technické parametry pro pořadatele -->
+                <div class="lg:col-span-6">
+                    <div class="inline-block bg-copper-400 text-lid-950 font-extrabold text-[10px] uppercase tracking-[0.25em] px-3 py-1 mb-4">
+                        Pro pořadatele akcí a trhů
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-6 leading-tight">
+                        Vánoční, adventní a farmářské trhy
+                    </h2>
+                    <p class="text-sm md:text-base text-copper-200/85 leading-relaxed mb-8">
+                        Hledáte pro svůj trh řemeslný sortiment s estetickou prezentací? Stánek Honigkammer je laděný do jednotného tmavě hnědého a měděného stylu, s čistým dřevěným aranžmá, teplým nasvícením dárkových balení a vůní včelího vosku.
                     </p>
-                    <button type="button" onclick="addToCart('B2B: Pronájem a správa firemního včelstva', 'Individuální kalkulace')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 text-xs font-bold uppercase tracking-[0.2em] px-6 py-3.5 transition">
-                        Poptat včely do firmy
-                    </button>
-                </div>
-            </div>
 
-            <div class="flex flex-wrap gap-6 text-xs uppercase tracking-[0.18em] text-copper-300/80">
-                <span>✓ Vlastní etiketa / visačka</span>
-                <span>✓ Fakturace na IČO</span>
-                <span>✓ Doprava po ČR</span>
-            </div>
-        </div>
-
-        <!-- Pravá polovina: Vánoční trhy -->
-        <div id="vanoce-trhy" class="lg:col-span-5 bg-lid-800 p-8 md:p-16 lg:p-20 flex flex-col justify-between">
-            <div>
-                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-300 block mb-3">Pro pořadatele akcí</span>
-                <h2 class="font-serif text-3xl md:text-4xl text-copper-200 mb-6">Vánoční a farmářské trhy</h2>
-                <p class="text-sm text-copper-200/80 leading-relaxed mb-8">
-                    Prezentace v jednotném tmavě hnědém a měděném vizuálním stylu Honigkammer. Čisté dřevěné aranžmá, teplé nasvícení dárkových balení a kompletní technická připravenost.
-                </p>
-
-                <div class="space-y-4 border-y border-copper-400/20 py-6 mb-8 text-xs">
-                    <div class="flex justify-between gap-4">
-                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Sortiment stánku:</span>
-                        <span class="text-copper-200 font-medium text-right">Dárková balení, medy, voskové svíčky, autorské figurky</span>
+                    <!-- Technická karta stánku -->
+                    <div class="bg-lid-950/90 border border-copper-400/30 p-6 md:p-8 space-y-4 text-xs mb-8 shadow-xl">
+                        <h3 class="font-serif text-2xl text-copper-300 mb-2">Technická specifikace prodeje</h3>
+                        <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
+                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Sortiment stánku:</span>
+                            <span class="text-copper-200 font-semibold text-right">Dárková balení, medy, svíčky z vosku, autorské figurky</span>
+                        </div>
+                        <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
+                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Prodejní plocha:</span>
+                            <span class="text-copper-200 font-semibold text-right">Stánek 2×2 m nebo 3×2 m (příp. vlastní dřevěný pult)</span>
+                        </div>
+                        <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
+                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Přípojka elektřiny:</span>
+                            <span class="text-copper-200 font-semibold text-right">230 V / odběr do 500 W (pouze LED osvětlení a terminál)</span>
+                        </div>
+                        <div class="flex justify-between gap-4 py-2">
+                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Doklady & IČO:</span>
+                            <span class="text-copper-200 font-semibold text-right">Radim Semerád, IČO: 17635331</span>
+                        </div>
                     </div>
-                    <div class="flex justify-between gap-4">
-                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Požadavek na místo:</span>
-                        <span class="text-copper-200 font-medium text-right">Stánek 2×2 m nebo 3×2 m (příp. vlastní pult)</span>
-                    </div>
-                    <div class="flex justify-between gap-4">
-                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Elektřina:</span>
-                        <span class="text-copper-200 font-medium text-right">230 V / do 500 W (LED osvětlení)</span>
+
+                    <!-- Rychlé přímé kontakty pro organizátory -->
+                    <div class="flex flex-wrap items-center gap-4 text-xs">
+                        <a href="tel:+420739809805" class="bg-lid-950 hover:bg-lid-900 border border-copper-400/50 text-copper-200 px-5 py-3.5 font-bold tracking-[0.15em] uppercase transition">
+                            📞 +420 739 809 805
+                        </a>
+                        <a href="mailto:radimsemerad@gmail.com" class="bg-lid-950 hover:bg-lid-900 border border-copper-400/50 text-copper-200 px-5 py-3.5 font-bold tracking-[0.15em] uppercase transition">
+                            ✉️ radimsemerad@gmail.com
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <a href="#kontakt" class="inline-block text-center border border-copper-400 text-copper-200 hover:bg-copper-400 hover:text-lid-950 text-xs font-bold uppercase tracking-[0.2em] py-4 px-6 transition">
-                Kontakt pro organizátory trhů
-            </a>
+                <!-- Pravá část: Samostatný formulář pro pořadatele trhů -->
+                <div class="lg:col-span-6 bg-lid-950 border-2 border-copper-400/40 p-8 md:p-10 shadow-2xl">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Přímý kontakt pro organizátory</span>
+                    <h3 class="font-serif text-3xl text-copper-200 mb-3">Nabídka místa / Dotaz k účasti na trhu</h3>
+                    <p class="text-xs text-copper-200/70 mb-6 leading-relaxed">
+                        Máte volnou kapacitu na vánočních či farmářských trzích, nebo potřebujete doplnit podklady k naší přihlášce? Napište nám přímo zde:
+                    </p>
+
+                    <form onsubmit="submitMarketForm(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Název akce / Město / Pořadatel *</label>
+                            <input id="market-name" type="text" required placeholder="Např. Adventní trhy Beroun / Městské kulturní centrum" class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Termín konání</label>
+                                <input id="market-date" type="text" placeholder="Např. prosinec / víkend 12.–13. 12." class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Váš e-mail nebo telefon *</label>
+                                <input id="market-contact" type="text" required placeholder="Kontakt pro rychlou odpověď" class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Zpráva nebo detaily k místu</label>
+                            <textarea id="market-notes" rows="3" placeholder="Informace o stánku, podmínkách nebo vyžádání dalších fotografií..." class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-extrabold text-xs uppercase tracking-[0.2em] py-4 transition shadow-lg">
+                            Odeslat zprávu k vánočním trhům
+                        </button>
+                        <p id="market-feedback" class="text-xs text-copper-300 hidden pt-2"></p>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- 5. KONTAKT -->
-    <footer id="kontakt" class="bg-lid-950 border-t border-copper-400/20 py-20 px-6 md:px-14">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
-            <div class="lg:col-span-5">
-                <span class="font-serif text-3xl font-bold tracking-wider text-copper-200 uppercase block mb-4">Honigkammer</span>
-                <p class="text-sm text-copper-200/70 mb-8 max-w-sm">
-                    Máte zájem o dárková balení, firemní spolupráci nebo nás chcete pozvat na vánoční trhy? Napište nám.
-                </p>
-                <div class="space-y-2 text-sm text-copper-300">
-                    <p class="text-copper-200 font-semibold">Radim Semerád</p>
-                    <p>E-mail: <a href="mailto:radimsemerad@gmail.com" class="text-copper-200 underline hover:text-copper-400 transition">radimsemerad@gmail.com</a></p>
-                    <p class="text-copper-300/70 text-xs pt-2 uppercase tracking-[0.15em]">IČO: 17635331</p>
+    <!-- 4. SAMOSTATNÁ SEKCE: PRO FIRMY (B2B) A POPTÁVKY PRODUKTŮ -->
+    <section id="b2b" class="py-24 md:py-32 bg-lid-950 border-t border-copper-400/20">
+        <div class="max-w-7xl mx-auto px-6 md:px-14">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Levá část: B2B nabídka (Dárková balení + Včely do firem) -->
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-3">Pro firmy a partnery (B2B)</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-4 leading-tight">
+                        Firemní dárky, které neskončí v koši
+                    </h2>
+                    <p class="text-sm text-copper-200/75 leading-relaxed mb-8">
+                        Připravíme dárková balení na míru v barvách Honigkammer s dřevitou vlnou a visačkou či etiketou vaší společnosti. Daňově uznatelný propagační předmět do 500 Kč bez DPH.
+                    </p>
+
+                    <div class="flex flex-wrap gap-6 text-xs uppercase tracking-[0.18em] text-copper-300 mb-10 pb-8 border-b border-copper-400/15">
+                        <span>✓ Vlastní etiketa / visačka</span>
+                        <span>✓ Fakturace na IČO</span>
+                        <span>✓ Doprava po ČR</span>
+                    </div>
+
+                    <!-- Speciální B2B blok: Včely do firem -->
+                    <div class="bg-lid-900 border-l-2 border-copper-400 p-6 md:p-8 shadow-xl">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Firemní včelstva na klíč & ESG</span>
+                        <h3 class="font-serif text-2xl md:text-3xl text-copper-200 mb-3">
+                            „Chcete stovky tisíc zaměstnankyň za cenu jedné osoby v kosmonautském?“
+                        </h3>
+                        <p class="text-xs md:text-sm text-copper-200/75 leading-relaxed mb-5">
+                            Umístíme a budeme kompletně obsluhovat včelí úly přímo na pozemku nebo střeše vaší firmy. Bez starostí, s pravidelným servisem včelaře a vlastní sklizní medu pod vaší firemní značkou.
+                        </p>
+                        <button type="button" onclick="addToCart('B2B: Pronájem a správa firemního včelstva', 'Individuální kalkulace')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 text-xs font-bold uppercase tracking-[0.2em] px-6 py-3.5 transition">
+                            + Přidat včely do B2B poptávky
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Pravá část: Samostatný formulář pro B2B a objednávky ze Sortimentu -->
+                <div id="b2b-form-box" class="lg:col-span-6 bg-lid-900 border border-copper-400/25 p-8 md:p-10 shadow-xl">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Poptávkový formulář — B2B & Sortiment</span>
+                    <h3 class="font-serif text-3xl text-copper-200 mb-3">Nezávazná poptávka dárků a produktů</h3>
+                    <p class="text-xs text-copper-200/70 mb-6 leading-relaxed">
+                        Poptáváte firemní dárková balení, pronájem včelstva nebo vybrané položky ze sortimentu? Ozveme se vám s kalkulací a návrhem řešení.
+                    </p>
+
+                    <form onsubmit="submitB2BForm(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Jméno / Společnost *</label>
+                                <input id="b2b-name" type="text" required placeholder="Vaše jméno nebo název firmy" class="w-full bg-lid-950 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">E-mail nebo telefon *</label>
+                                <input id="b2b-contact" type="text" required placeholder="Váš kontakt" class="w-full bg-lid-950 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Poptávané položky / Počet kusů / Dotaz</label>
+                            <textarea id="order-notes" rows="4" placeholder="Např. 40 ks dárkových balení s firemní visačkou, nebo zájem o firemní včelstvo..." class="w-full bg-lid-950 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 placeholder-copper-300/30 focus:outline-none focus:border-copper-400"></textarea>
+                        </div>
+                        <button type="submit" class="w-full border border-copper-400 bg-copper-400/15 hover:bg-copper-400 text-copper-200 hover:text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
+                            Odeslat B2B / produktovou poptávku
+                        </button>
+                        <p id="b2b-feedback" class="text-xs text-copper-300 hidden pt-2"></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PATIČKA A PŘÍMÉ KONTAKTY -->
+    <footer id="kontakt" class="bg-lid-950 border-t border-copper-400/20 py-16 px-6 md:px-14">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+            
+            <div>
+                <span class="font-serif text-3xl font-bold tracking-wider text-copper-200 uppercase block mb-2">Honigkammer</span>
+                <p class="text-xs uppercase tracking-[0.2em] text-copper-400">
+                    Včelky pracují, my prodáváme.
+                </p>
             </div>
 
-            <form onsubmit="submitForm(event)" class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-lid-900 p-8 border border-copper-400/20">
-                <input type="text" required placeholder="Jméno / Firma / Pořadatel" class="bg-lid-950 border border-copper-400/30 px-4 py-3.5 text-sm text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
-                <input type="email" required placeholder="Váš e-mail nebo telefon" class="bg-lid-950 border border-copper-400/30 px-4 py-3.5 text-sm text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
-                <textarea id="order-notes" rows="3" placeholder="Zpráva nebo vybrané položky..." class="sm:col-span-2 bg-lid-950 border border-copper-400/30 px-4 py-3.5 text-sm text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400"></textarea>
-                <button type="submit" class="sm:col-span-2 bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
-                    Odeslat zprávu
-                </button>
-                <p id="form-feedback" class="sm:col-span-2 text-xs text-copper-300 hidden"></p>
-            </form>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm text-copper-300">
+                <div>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-400 mb-1">Kontakt</span>
+                    <p class="text-copper-200 font-semibold">Radim Semerád</p>
+                    <p class="text-copper-300/70 text-xs mt-0.5">IČO: 17635331</p>
+                </div>
+                <div>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-400 mb-1">Telefon</span>
+                    <a href="tel:+420739809805" class="text-copper-200 font-semibold hover:text-copper-400 transition block">
+                        +420 739 809 805
+                    </a>
+                </div>
+                <div>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-400 mb-1">E-mail</span>
+                    <a href="mailto:radimsemerad@gmail.com" class="text-copper-200 underline hover:text-copper-400 transition block">
+                        radimsemerad@gmail.com
+                    </a>
+                </div>
+            </div>
 
         </div>
     </footer>
@@ -442,7 +537,7 @@
     <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-lid-900 border-l border-copper-400/30 p-8 translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
         <div>
             <div class="flex items-center justify-between pb-6 border-b border-copper-400/20">
-                <h3 class="font-serif text-2xl text-copper-200">Vaše poptávka</h3>
+                <h3 class="font-serif text-2xl text-copper-200">Vybrané položky</h3>
                 <button type="button" onclick="toggleCart()" class="text-xs uppercase tracking-[0.2em] text-copper-400">Zavřít ✕</button>
             </div>
             <div id="cart-items" class="py-6 space-y-4 text-sm">
@@ -451,7 +546,7 @@
         </div>
         <div class="pt-6 border-t border-copper-400/20">
             <button type="button" onclick="transferCartToForm()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
-                Přejít k odeslání poptávky
+                Propis do B2B / Poptávkového formuláře
             </button>
         </div>
     </div>
@@ -582,13 +677,20 @@
                 return "- " + i.name + " (" + i.price + ")";
             }).join("\n");
             toggleCart(false);
-            document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('b2b-form-box').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function submitForm(e) {
+        function submitMarketForm(e) {
             e.preventDefault();
-            const fb = document.getElementById('form-feedback');
-            fb.textContent = "Děkujeme! Poptávka je připravena. Můžete nám také napsat přímo na radimsemerad@gmail.com.";
+            const fb = document.getElementById('market-feedback');
+            fb.textContent = "Děkujeme! Zpráva pro vánoční trhy je připravena. Pro okamžité spojení můžete také zavolat na +420 739 809 805 nebo napsat na radimsemerad@gmail.com.";
+            fb.classList.remove('hidden');
+        }
+
+        function submitB2BForm(e) {
+            e.preventDefault();
+            const fb = document.getElementById('b2b-feedback');
+            fb.textContent = "Děkujeme za poptávku! Ozveme se vám co nejdříve. Případně nás kontaktujte přímo na radimsemerad@gmail.com nebo +420 739 809 805.";
             fb.classList.remove('hidden');
         }
     </script>
