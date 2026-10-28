@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honigkammer | Včelky pracují, my prodáváme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lid: {
+                            950: '#120907',
+                            900: '#1C0E0B',
+                            800: '#2A1612',
+                            700: '#3D221C'
+                        },
+                        copper: {
+                            200: '#F3DFD1',
+                            300: '#E2B89E',
+                            400: '#C88A6B',
+                            500: '#A96B4C',
+                            600: '#8A5236'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            background-color: #120907;
+            color: #F3DFD1;
+            overflow-x: hidden;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hero-slide {
+            transition: opacity 1.2s ease-in-out, transform 6s ease-out;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-copper-400 selection:text-lid-950">
+
+    <!-- 1. HERO SEKCE -->
+    <header class="relative w-full h-screen min-h-[650px] overflow-hidden flex flex-col justify-between">
+        
+        <!-- Měnící se fotky na pozadí -->
+        <div id="hero-slides" class="absolute inset-0 z-0">
+            <div class="hero-slide absolute inset-0 opacity-100 scale-105 bg-cover bg-center" 
+                 style="background-image: linear-gradient(to bottom, rgba(18,9,7,0.55), rgba(18,9,7,0.82)), url('https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=1920&q=85');">
+            </div>
+            <div class="hero-slide absolute inset-0 opacity-0 scale-100 bg-cover bg-center" 
+                 style="background-image: linear-gradient(to bottom, rgba(18,9,7,0.55), rgba(18,9,7,0.82)), url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1920&q=85');">
+            </div>
+            <div class="hero-slide absolute inset-0 opacity-0 scale-100 bg-cover bg-center" 
+                 style="background-image: linear-gradient(to bottom, rgba(18,9,7,0.55), rgba(18,9,7,0.82)), url('https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=1920&q=85');">
+            </div>
+        </div>
+
+        <!-- HORNÍ NAVIGACE -->
+        <nav class="relative z-20 w-full px-6 md:px-14 py-7 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3.5 group">
+                <!-- Autorské geometrické logo včely -->
+                <div class="w-11 h-11 rounded-full bg-lid-800 border border-copper-400/70 flex items-center justify-center shadow-lg group-hover:border-copper-200 transition">
+                    <svg class="w-7 h-7 text-copper-400" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 7.5C13 5.5 11.5 4.5 9.5 4.5" />
+                        <path d="M18 7.5C19 5.5 20.5 4.5 22.5 4.5" />
+                        <circle cx="16" cy="9" r="1.8" fill="currentColor" />
+                        <ellipse cx="16" cy="13.5" rx="3.2" ry="2.6" fill="currentColor" fill-opacity="0.25" />
+                        <path d="M13 12.5C7.5 9 3 11 4.5 15.5C5.8 19 11 17.5 13.2 15" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M19 12.5C24.5 9 29 11 27.5 15.5C26.2 19 21 17.5 18.8 15" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M13.2 15.2C9 16.5 7 20.5 9.5 22.5C11.5 24 13.5 21 14 18" />
+                        <path d="M18.8 15.2C23 16.5 25 20.5 22.5 22.5C20.5 24 18.5 21 18 18" />
+                        <ellipse cx="16" cy="21.5" rx="3.8" ry="5.5" />
+                        <path d="M12.5 19.5H19.5" />
+                        <path d="M12.3 22H19.7" />
+                        <path d="M13.2 24.5H18.8" />
+                        <path d="M16 27V28.5" />
+                    </svg>
+                </div>
+                <span class="font-serif text-2xl md:text-3xl font-bold tracking-wider text-copper-200 uppercase">Honigkammer</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-9 text-xs font-semibold tracking-[0.22em] uppercase text-copper-200/90">
+                <a href="#nabizime" class="hover:text-copper-400 transition">Co nabízíme</a>
+                <a href="#produkty" class="hover:text-copper-400 transition">Sortiment</a>
+                <a href="#b2b" class="hover:text-copper-400 transition">B2B</a>
+                <a href="#vanoce-trhy" class="hover:text-copper-400 transition">Vánoční trhy</a>
+                <a href="#kontakt" class="hover:text-copper-400 transition">Kontakt</a>
+            </div>
+
+            <button type="button" onclick="toggleCart()" class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
+                <span>Poptávka</span>
+                <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
+            </button>
+        </nav>
+
+        <!-- STŘED: HLAVNÍ SLOGAN -->
+        <div class="relative z-10 my-auto px-6 md:px-16 text-center pointer-events-none max-w-6xl mx-auto">
+            <span class="block text-xs md:text-sm uppercase tracking-[0.35em] text-copper-300 mb-4 font-semibold">
+                Rodinná medová komora
+            </span>
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[0.06em] uppercase text-copper-200 drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] leading-tight">
+                Včelky pracují,<br>my prodáváme.
+            </h1>
+        </div>
+
+        <!-- BOČNÍ TEČKY PRO PŘEPÍNÁNÍ POZADÍ -->
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3">
+            <button type="button" onclick="setSlide(0)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-400 transition-all scale-125"></button>
+            <button type="button" onclick="setSlide(1)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-200/40 hover:bg-copper-300 transition-all"></button>
+            <button type="button" onclick="setSlide(2)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-200/40 hover:bg-copper-300 transition-all"></button>
+        </div>
+
+        <!-- SPODNÍ TROJDÍLNÁ LIŠTA: CO NABÍZÍME | B2B | VÁNOČNÍ TRHY -->
+        <div class="relative z-20 w-full flex justify-end">
+            <div class="grid grid-cols-3 w-full md:w-auto md:min-w-[640px] shadow-2xl">
+                <a href="#nabizime" class="bg-lid-800 hover:bg-lid-700 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-l border-copper-400/20 flex items-center justify-center">
+                    Co nabízíme
+                </a>
+                <a href="#b2b" class="bg-copper-600 hover:bg-copper-500 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-copper-400/20 flex items-center justify-center">
+                    B2B
+                </a>
+                <a href="#vanoce-trhy" class="bg-copper-400 hover:bg-copper-300 text-lid-950 py-5 px-4 md:px-10 text-center text-xs font-extrabold tracking-[0.2em] uppercase transition flex items-center justify-center">
+                    Vánoční trhy
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HLAVNÍ SEKCE: CO NABÍZÍME & DÁRKOVÉ BALENÍ S POSUVNÍKEM KUSOVÉ CENY -->
+    <section id="nabizime" class="relative py-24 md:py-32 bg-lid-900 overflow-hidden border-t border-copper-400/15">
+        <div class="pointer-events-none select-none absolute -top-6 right-0 text-[11vw] font-serif font-bold uppercase text-copper-400/[0.04] leading-none whitespace-nowrap">
+            HONIGKAMMER EDITION
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-14">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-0">
+                
+                <!-- PRAVÁ STRANA: Fotografie -->
+                <div class="w-full lg:w-7/12 relative z-10">
+                    <div class="relative aspect-[16/11] bg-lid-800 border border-copper-400/30 overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.75)] flex items-center justify-center">
+                        <img src="img/svicky-prirodni.jpg" alt="Dárkové balení a svíčky Honigkammer" class="w-full h-full object-cover">
+                        <div class="absolute top-6 right-6 bg-lid-950/90 border border-copper-400/40 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-copper-300">
+                            Vlajkový produkt
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVÁ STRANA: Karta s posuvníkem a cenou za kus -->
+                <div class="w-full lg:w-6/12 lg:-mr-16 relative z-20 bg-lid-950/95 backdrop-blur-md border border-copper-400/30 p-8 md:p-12 shadow-2xl">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Co nabízíme</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-copper-200 font-semibold leading-tight mb-4">
+                        Dárkové balení Honigkammer
+                    </h2>
+                    <p class="text-copper-200/80 text-sm leading-relaxed mb-6 font-light">
+                        Reprezentativní dárkové balení v barvách našeho originálního víčka. Kombinace poctivého medu a ručně odlévaných svíček ze včelího vosku v dřevité vlně. Posuňte jezdcem a podívejte se, jak s počtem kusů klesá cena za 1 balení:
+                    </p>
+
+                    <!-- Posuvník přímo u dárkového balení -->
+                    <div class="bg-lid-900 border border-copper-400/25 p-5 mb-6">
+                        <div class="flex justify-between items-end mb-4">
+                            <div>
+                                <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/70">Počet balení</span>
+                                <span id="gift-qty-label" class="font-serif text-3xl text-copper-200 font-bold">10 ks</span>
+                            </div>
+                            <div class="text-right bg-lid-950 border border-copper-400/50 px-4 py-2">
+                                <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300">Cena za 1 kus</span>
+                                <span id="gift-unit-label" class="font-serif text-3xl text-copper-400 font-bold">550 Kč</span>
+                                <span class="text-xs text-copper-300/70"> / ks</span>
+                            </div>
+                        </div>
+
+                        <input id="gift-slider" type="range" min="1" max="120" step="1" value="10" oninput="updateGiftCalc()" class="w-full accent-copper-400 cursor-pointer mb-3">
+
+                        <div class="grid grid-cols-4 gap-1.5 text-center text-[10px] mb-4">
+                            <div id="gtier-1" class="p-1.5 border border-copper-400/15 text-copper-300/60">
+                                <span class="block font-bold">1–9 ks</span>
+                                <span>590 Kč/ks</span>
+                            </div>
+                            <div id="gtier-2" class="p-1.5 border border-copper-400 bg-copper-400/15 text-copper-200">
+                                <span class="block font-bold">10–29 ks</span>
+                                <span>550 Kč/ks</span>
+                            </div>
+                            <div id="gtier-3" class="p-1.5 border border-copper-400/15 text-copper-300/60">
+                                <span class="block font-bold">30–59 ks</span>
+                                <span>510 Kč/ks</span>
+                            </div>
+                            <div id="gtier-4" class="p-1.5 border border-copper-400/15 text-copper-300/60">
+                                <span class="block font-bold">60+ ks</span>
+                                <span>480 Kč/ks</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-3 border-t border-copper-400/15">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Celkem za vybrané množství</span>
+                                <span id="gift-total-label" class="font-serif text-2xl text-copper-200 font-bold">5 500 Kč</span>
+                            </div>
+                            <span id="gift-save-badge" class="bg-copper-400/20 text-copper-300 border border-copper-400/40 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
+                                Úspora 400 Kč
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button type="button" onclick="addGiftToCart()" class="bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] px-8 py-4 transition">
+                            Přidat do poptávky
+                        </button>
+                        <a href="#b2b" class="text-xs uppercase tracking-[0.2em] text-copper-300 hover:text-copper-200 px-3 py-3 border-b border-copper-400/40">
+                            Firemní B2B nabídka →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. HORIZONTÁLNÍ PÁS PRODUKTŮ -->
+    <section id="produkty" class="py-24 bg-lid-950 border-t border-copper-400/15">
+        <div class="max-w-7xl mx-auto px-6 md:px-14 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Sortiment</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-copper-200">Jednotlivé produkty</h2>
+            </div>
+            <div class="flex items-center gap-3 self-start md:self-auto">
+                <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60 mr-2">Posunout pás</span>
+                <button type="button" onclick="scrollGallery(-1)" class="w-12 h-12 border border-copper-400/40 hover:bg-copper-400 hover:text-lid-950 text-copper-300 flex items-center justify-center transition">
+                    ←
+                </button>
+                <button type="button" onclick="scrollGallery(1)" class="w-12 h-12 border border-copper-400/40 hover:bg-copper-400 hover:text-lid-950 text-copper-300 flex items-center justify-center transition">
+                    →
+                </button>
+            </div>
+        </div>
+
+        <div id="product-rail" class="flex gap-7 overflow-x-auto no-scrollbar px-6 md:px-14 pb-6 snap-x snap-mandatory">
+            
+            <!-- Karta 1 -->
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+                <div>
+                    <div class="aspect-[4/3] bg-lid-800 mb-6 overflow-hidden border border-copper-400/15 relative">
+                        <img src="img/svicky-prirodni.jpg" alt="Svíčky ze včelího vosku" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">100% Včelí vosk</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Reliéfní svíčky z vosku</h3>
+                    <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Ručně odlévané svíčky s detailními motivy včelí plástve, růže či veverky. Přirozená medová vůně.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
+                    <span class="font-serif text-2xl text-copper-300">190 Kč</span>
+                    <button type="button" onclick="addToCart('Reliéfní svíčka z vosku', '190 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                        + Vybrat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Karta 2 -->
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+                <div>
+                    <div class="aspect-[4/3] bg-lid-800 mb-6 overflow-hidden border border-copper-400/15 relative">
+                        <img src="img/svicka-medved.jpg" alt="Svíčka medvěd v dutině a oříšek" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">Dárkové motivy</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Medvěd v kmeni & Oříšek</h3>
+                    <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Detailní plastické odlitky z čistého včelího vosku – medvídek v dutině stromu nebo spící zvířátko.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
+                    <span class="font-serif text-2xl text-copper-300">210 Kč</span>
+                    <button type="button" onclick="addToCart('Svíčka Medvěd / Oříšek', '210 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                        + Vybrat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Karta 3 -->
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+                <div>
+                    <div class="aspect-[4/3] bg-lid-800 mb-6 flex items-center justify-center border border-copper-400/15 relative">
+                        <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60">Foto sklenice brzy</span>
+                        <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950 px-2.5 py-1 text-copper-400">Květový</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Květový a pastovaný med</h3>
+                    <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Jarní nektar ze sadů a luk, šetrně míchaný do krémové konzistence i klasický tekutý.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
+                    <span class="font-serif text-2xl text-copper-300">240 Kč</span>
+                    <button type="button" onclick="addToCart('Květový / pastovaný med', '240 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                        + Vybrat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Karta 4 -->
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+                <div>
+                    <div class="aspect-[4/3] bg-lid-800 mb-6 flex items-center justify-center border border-copper-400/15 relative">
+                        <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60">Foto sklenice brzy</span>
+                        <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950 px-2.5 py-1 text-copper-400">Medovicový</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Lesní medovicový med</h3>
+                    <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Tmavý med s výraznou minerální chutí a pomalou krystalizací pod naším měděným víčkem.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
+                    <span class="font-serif text-2xl text-copper-300">280 Kč</span>
+                    <button type="button" onclick="addToCart('Lesní medovicový med', '280 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                        + Vybrat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Karta 5 -->
+            <div class="min-w-[300px] sm:min-w-[360px] bg-lid-900 border border-copper-400/20 snap-start flex flex-col justify-between p-7 hover:border-copper-400/60 transition">
+                <div>
+                    <div class="aspect-[4/3] bg-lid-800 mb-6 overflow-hidden border border-copper-400/15 relative">
+                        <img src="img/fantasy-figurky.jpg" alt="Ručně vyráběné fantasy figurky" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">Rukodělný originál</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-copper-200 mb-2">Autorské fantasy figurky</h3>
+                    <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Ručně tvoření lesní skřítci a bytosti s propracovanými detaily. Každý kus je neopakovatelný originál.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
+                    <span class="font-serif text-2xl text-copper-300">Dle výběru</span>
+                    <button type="button" onclick="addToCart('Autorská fantasy figurka', 'Individuální')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                        + Poptat
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. B2B & VÁNOČNÍ TRHY -->
+    <section id="b2b" class="grid grid-cols-1 lg:grid-cols-12 border-t border-copper-400/20">
+        
+        <!-- Levá polovina: Firemní B2B -->
+        <div class="lg:col-span-7 bg-lid-900 p-8 md:p-16 lg:p-20 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-copper-400/20">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-3">Pro firmy (B2B)</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-copper-200 mb-4">Firemní dárky, které neskončí v koši</h2>
+                <p class="text-sm text-copper-200/75 leading-relaxed mb-8 max-w-xl">
+                    Připravíme dárková balení na míru v barvách Honigkammer s dřevitou vlnou a visačkou či etiketou vaší společnosti. Daňově uznatelný propagační předmět do 500 Kč bez DPH.
+                </p>
+
+                <!-- B2B blok 1: Včely do firem -->
+                <div class="bg-lid-950 border-l-2 border-copper-400 p-6 md:p-8 mb-8 shadow-xl">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Firemní včelstva na klíč</span>
+                    <h3 class="font-serif text-2xl md:text-3xl text-copper-200 mb-3">
+                        „Chcete stovky tisíc zaměstnankyň za cenu jedné osoby v kosmonautském?“
+                    </h3>
+                    <p class="text-xs md:text-sm text-copper-200/75 leading-relaxed mb-5">
+                        Umístíme a budeme kompletně obsluhovat včelí úly přímo na pozemku nebo střeše vaší firmy. Bez starostí, s pravidelným servisem včelaře a vlastní sklizní medu pod vaší firemní značkou.
+                    </p>
+                    <button type="button" onclick="addToCart('B2B: Pronájem a správa firemního včelstva', 'Individuální kalkulace')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 text-xs font-bold uppercase tracking-[0.2em] px-6 py-3.5 transition">
+                        Poptat včely do firmy
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-6 text-xs uppercase tracking-[0.18em] text-copper-300/80">
+                <span>✓ Vlastní etiketa / visačka</span>
+                <span>✓ Fakturace na IČO</span>
+                <span>✓ Doprava po ČR</span>
+            </div>
+        </div>
+
+        <!-- Pravá polovina: Vánoční trhy -->
+        <div id="vanoce-trhy" class="lg:col-span-5 bg-lid-800 p-8 md:p-16 lg:p-20 flex flex-col justify-between">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-300 block mb-3">Pro pořadatele akcí</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-copper-200 mb-6">Vánoční a farmářské trhy</h2>
+                <p class="text-sm text-copper-200/80 leading-relaxed mb-8">
+                    Prezentace v jednotném tmavě hnědém a měděném vizuálním stylu Honigkammer. Čisté dřevěné aranžmá, teplé nasvícení dárkových balení a kompletní technická připravenost.
+                </p>
+
+                <div class="space-y-4 border-y border-copper-400/20 py-6 mb-8 text-xs">
+                    <div class="flex justify-between gap-4">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Sortiment stánku:</span>
+                        <span class="text-copper-200 font-medium text-right">Dárková balení, medy, voskové svíčky, autorské figurky</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Požadavek na místo:</span>
+                        <span class="text-copper-200 font-medium text-right">Stánek 2×2 m nebo 3×2 m (příp. vlastní pult)</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Elektřina:</span>
+                        <span class="text-copper-200 font-medium text-right">230 V / do 500 W (LED osvětlení)</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#kontakt" class="inline-block text-center border border-copper-400 text-copper-200 hover:bg-copper-400 hover:text-lid-950 text-xs font-bold uppercase tracking-[0.2em] py-4 px-6 transition">
+                Kontakt pro organizátory trhů
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. KONTAKT -->
+    <footer id="kontakt" class="bg-lid-950 border-t border-copper-400/20 py-20 px-6 md:px-14">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-5">
+                <span class="font-serif text-3xl font-bold tracking-wider text-copper-200 uppercase block mb-4">Honigkammer</span>
+                <p class="text-sm text-copper-200/70 mb-8 max-w-sm">
+                    Máte zájem o dárková balení, firemní spolupráci nebo nás chcete pozvat na vánoční trhy? Napište nám.
+                </p>
+                <div class="space-y-2 text-sm text-copper-300">
+                    <p class="text-copper-200 font-semibold">Radim Semerád</p>
+                    <p>E-mail: <a href="mailto:radimsemerad@gmail.com" class="text-copper-200 underline hover:text-copper-400 transition">radimsemerad@gmail.com</a></p>
+                    <p class="text-copper-300/70 text-xs pt-2 uppercase tracking-[0.15em]">IČO: 17635331</p>
+                </div>
+            </div>
+
+            <form onsubmit="submitForm(event)" class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-lid-900 p-8 border border-copper-400/20">
+                <input type="text" required placeholder="Jméno / Firma / Pořadatel" class="bg-lid-950 border border-copper-400/30 px-4 py-3.5 text-sm text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
+                <input type="email" required placeholder="Váš e-mail nebo telefon" class="bg-lid-950 border border-copper-400/30 px-4 py-3.5 text-sm text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
+                <textarea id="order-notes" rows="3" placeholder="Zpráva nebo vybrané položky..." class="sm:col-span-2 bg-lid-950 border border-copper-400/30 px-4 py-3.5 text-sm text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400"></textarea>
+                <button type="submit" class="sm:col-span-2 bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
+                    Odeslat zprávu
+                </button>
+                <p id="form-feedback" class="sm:col-span-2 text-xs text-copper-300 hidden"></p>
+            </form>
+
+        </div>
+    </footer>
+
+    <!-- POSTRANNÍ POPTÁVKOVÝ PANEL -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-lid-900 border-l border-copper-400/30 p-8 translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
+        <div>
+            <div class="flex items-center justify-between pb-6 border-b border-copper-400/20">
+                <h3 class="font-serif text-2xl text-copper-200">Vaše poptávka</h3>
+                <button type="button" onclick="toggleCart()" class="text-xs uppercase tracking-[0.2em] text-copper-400">Zavřít ✕</button>
+            </div>
+            <div id="cart-items" class="py-6 space-y-4 text-sm">
+                <p class="text-copper-300/60 text-xs">Zatím jste nevybrali žádné položky.</p>
+            </div>
+        </div>
+        <div class="pt-6 border-t border-copper-400/20">
+            <button type="button" onclick="transferCartToForm()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
+                Přejít k odeslání poptávky
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slide-dot');
+
+        function setSlide(index) {
+            slides[currentSlide].classList.remove('opacity-100', 'scale-105');
+            slides[currentSlide].classList.add('opacity-0', 'scale-100');
+            dots[currentSlide].classList.remove('bg-copper-400', 'scale-125');
+            dots[currentSlide].classList.add('bg-copper-200/40');
+
+            currentSlide = index;
+
+            slides[currentSlide].classList.remove('opacity-0', 'scale-100');
+            slides[currentSlide].classList.add('opacity-100', 'scale-105');
+            dots[currentSlide].classList.remove('bg-copper-200/40');
+            dots[currentSlide].classList.add('bg-copper-400', 'scale-125');
+        }
+
+        setInterval(function() {
+            setSlide((currentSlide + 1) % slides.length);
+        }, 5500);
+
+        function scrollGallery(direction) {
+            const rail = document.getElementById('product-rail');
+            rail.scrollBy({ left: direction * 380, behavior: 'smooth' });
+        }
+
+        function updateGiftCalc() {
+            const qty = parseInt(document.getElementById('gift-slider').value, 10);
+            const basePrice = 590;
+            let unitPrice = 590;
+            let activeTier = 1;
+
+            if (qty >= 10 && qty < 30) {
+                unitPrice = 550;
+                activeTier = 2;
+            } else if (qty >= 30 && qty < 60) {
+                unitPrice = 510;
+                activeTier = 3;
+            } else if (qty >= 60) {
+                unitPrice = 480;
+                activeTier = 4;
+            }
+
+            const total = qty * unitPrice;
+            const saved = qty * (basePrice - unitPrice);
+
+            document.getElementById('gift-qty-label').textContent = qty + ' ks';
+            document.getElementById('gift-unit-label').textContent = unitPrice + ' Kč';
+            document.getElementById('gift-total-label').textContent = total.toLocaleString('cs-CZ') + ' Kč';
+
+            const badge = document.getElementById('gift-save-badge');
+            if (saved > 0) {
+                badge.textContent = 'Úspora ' + saved.toLocaleString('cs-CZ') + ' Kč';
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            for (let i = 1; i <= 4; i++) {
+                const el = document.getElementById('gtier-' + i);
+                if (i === activeTier) {
+                    el.className = 'p-1.5 border border-copper-400 bg-copper-400/15 text-copper-200';
+                } else {
+                    el.className = 'p-1.5 border border-copper-400/15 text-copper-300/60';
+                }
+            }
+        }
+
+        const cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name: name, price: price });
+            renderCart();
+            toggleCart(true);
+        }
+
+        function addGiftToCart() {
+            const qty = document.getElementById('gift-slider').value;
+            const unitText = document.getElementById('gift-unit-label').textContent;
+            const totalText = document.getElementById('gift-total-label').textContent;
+            cart.push({
+                name: 'Dárkové balení (' + qty + ' ks × ' + unitText + ')',
+                price: totalText
+            });
+            renderCart();
+            toggleCart(true);
+        }
+
+        function renderCart() {
+            document.getElementById('cart-count').textContent = cart.length;
+            const container = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-copper-300/60 text-xs">Zatím jste nevybrali žádné položky.</p>';
+                return;
+            }
+            container.innerHTML = cart.map(function(item, idx) {
+                return '<div class="flex justify-between items-center border-b border-copper-400/15 pb-2 gap-2">' +
+                    '<div><span class="text-copper-200 block">' + item.name + '</span>' +
+                    '<span class="text-copper-400 text-xs">' + item.price + '</span></div>' +
+                    '<button type="button" onclick="removeFromCart(' + idx + ')" class="text-xs text-copper-400 hover:text-copper-200 shrink-0">Odebrat</button>' +
+                    '</div>';
+            }).join('');
+        }
+
+        function removeFromCart(idx) {
+            cart.splice(idx, 1);
+            renderCart();
+        }
+
+        function toggleCart(forceOpen) {
+            const drawer = document.getElementById('cart-drawer');
+            if (forceOpen) {
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.toggle('translate-x-full');
+            }
+        }
+
+        function transferCartToForm() {
+            const notes = document.getElementById('order-notes');
+            notes.value = "Poptávané položky:\n" + cart.map(function(i) {
+                return "- " + i.name + " (" + i.price + ")";
+            }).join("\n");
+            toggleCart(false);
+            document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            const fb = document.getElementById('form-feedback');
+            fb.textContent = "Děkujeme! Poptávka je připravena. Můžete nám také napsat přímo na radimsemerad@gmail.com.";
+            fb.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
