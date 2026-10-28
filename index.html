@@ -48,32 +48,27 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .hero-slide {
-            transition: opacity 1.2s ease-in-out, transform 6s ease-out;
+        #bee-canvas {
+            touch-action: pan-y;
         }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-copper-400 selection:text-lid-950">
 
-    <!-- 1. HERO SEKCE -->
-    <header class="relative w-full h-screen min-h-[650px] overflow-hidden flex flex-col justify-between">
+    <!-- 1. HERO SEKCE S INTERAKTIVNÍMI VČELAMI -->
+    <header id="hero-header" class="relative w-full h-screen min-h-[650px] overflow-hidden flex flex-col justify-between bg-lid-950">
         
-        <!-- Měnící se fotky na pozadí -->
-        <div id="hero-slides" class="absolute inset-0 z-0">
-            <div class="hero-slide absolute inset-0 opacity-100 scale-105 bg-cover bg-center" 
-                 style="background-image: linear-gradient(to bottom, rgba(18,9,7,0.55), rgba(18,9,7,0.82)), url('https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=1920&q=85');">
-            </div>
-            <div class="hero-slide absolute inset-0 opacity-0 scale-100 bg-cover bg-center" 
-                 style="background-image: linear-gradient(to bottom, rgba(18,9,7,0.55), rgba(18,9,7,0.82)), url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1920&q=85');">
-            </div>
-            <div class="hero-slide absolute inset-0 opacity-0 scale-100 bg-cover bg-center" 
-                 style="background-image: linear-gradient(to bottom, rgba(18,9,7,0.55), rgba(18,9,7,0.82)), url('https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=1920&q=85');">
-            </div>
+        <!-- Jemný měděný přechod v pozadí -->
+        <div class="absolute inset-0 z-0 pointer-events-none" 
+             style="background: radial-gradient(circle at 80% 52%, rgba(200, 138, 107, 0.16) 0%, rgba(28, 14, 11, 0.7) 45%, rgba(18, 9, 7, 1) 85%);">
         </div>
 
+        <!-- INTERAKTIVNÍ PLÁTNO: VČELY LETÍCÍ K ÚLU -->
+        <canvas id="bee-canvas" class="absolute inset-0 w-full h-full z-10 cursor-grab"></canvas>
+
         <!-- HORNÍ NAVIGACE -->
-        <nav class="relative z-20 w-full px-6 md:px-14 py-7 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3.5 group">
+        <nav class="relative z-20 w-full px-6 md:px-14 py-7 flex items-center justify-between pointer-events-none">
+            <a href="#" class="flex items-center gap-3.5 group pointer-events-auto">
                 <div class="w-11 h-11 rounded-full bg-lid-800 border border-copper-400/70 flex items-center justify-center shadow-lg group-hover:border-copper-200 transition">
                     <svg class="w-7 h-7 text-copper-400" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 7.5C13 5.5 11.5 4.5 9.5 4.5" />
@@ -94,36 +89,32 @@
                 <span class="font-serif text-2xl md:text-3xl font-bold tracking-wider text-copper-200 uppercase">Honigkammer</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-9 text-xs font-semibold tracking-[0.22em] uppercase text-copper-200/90">
+            <div class="hidden md:flex items-center gap-9 text-xs font-semibold tracking-[0.22em] uppercase text-copper-200/90 pointer-events-auto">
                 <a href="#sortiment" class="hover:text-copper-400 transition">Sortiment</a>
                 <a href="#vanoce-trhy" class="hover:text-copper-400 transition text-copper-300">Vánoční trhy</a>
                 <a href="#b2b" class="hover:text-copper-400 transition">B2B</a>
                 <a href="#kontakt" class="hover:text-copper-400 transition">Kontakt</a>
             </div>
 
-            <button type="button" onclick="toggleCart()" class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
+            <button type="button" onclick="toggleCart()" class="pointer-events-auto flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
                 <span>Poptávka</span>
                 <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
             </button>
         </nav>
 
         <!-- STŘED: HLAVNÍ SLOGAN -->
-        <div class="relative z-10 my-auto px-6 md:px-16 text-center pointer-events-none max-w-6xl mx-auto">
-            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[0.06em] uppercase text-copper-200 drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] leading-tight">
+        <div class="relative z-20 my-auto px-6 md:px-16 text-center pointer-events-none max-w-6xl mx-auto">
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[0.06em] uppercase text-copper-200 drop-shadow-[0_6px_24px_rgba(0,0,0,0.9)] leading-tight select-none">
                 Včelky pracují,<br>my prodáváme.
             </h1>
-        </div>
-
-        <!-- BOČNÍ TEČKY PRO PŘEPÍNÁNÍ POZADÍ -->
-        <div class="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3">
-            <button type="button" onclick="setSlide(0)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-400 transition-all scale-125"></button>
-            <button type="button" onclick="setSlide(1)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-200/40 hover:bg-copper-300 transition-all"></button>
-            <button type="button" onclick="setSlide(2)" class="slide-dot w-2.5 h-2.5 rounded-full bg-copper-200/40 hover:bg-copper-300 transition-all"></button>
+            <p class="mt-5 text-[10px] md:text-xs uppercase tracking-[0.28em] text-copper-300/60 select-none">
+                (Zkuste čapnout včelku myší a posunout ji dál od úlu)
+            </p>
         </div>
 
         <!-- SPODNÍ TROJDÍLNÁ LIŠTA: SORTIMENT | B2B | VÁNOČNÍ TRHY -->
-        <div class="relative z-20 w-full flex justify-end">
-            <div class="grid grid-cols-3 w-full md:w-auto md:min-w-[640px] shadow-2xl">
+        <div class="relative z-20 w-full flex justify-end pointer-events-none">
+            <div class="grid grid-cols-3 w-full md:w-auto md:min-w-[640px] shadow-2xl pointer-events-auto">
                 <a href="#sortiment" class="bg-lid-800 hover:bg-lid-700 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-l border-copper-400/20 flex items-center justify-center">
                     Sortiment
                 </a>
@@ -539,28 +530,298 @@
     </div>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.hero-slide');
-        const dots = document.querySelectorAll('.slide-dot');
+        // --- INTERAKTIVNÍ VČELKY LETÍCÍ K ÚLU (CANVAS) ---
+        (function() {
+            const canvas = document.getElementById('bee-canvas');
+            const ctx = canvas.getContext('2d');
+            let width = 0;
+            let height = 0;
+            let hive = { x: 0, y: 0 };
+            const bees = [];
+            const BEE_COUNT = 14;
+            let draggedBee = null;
+            let pointer = { x: 0, y: 0 };
 
-        function setSlide(index) {
-            slides[currentSlide].classList.remove('opacity-100', 'scale-105');
-            slides[currentSlide].classList.add('opacity-0', 'scale-100');
-            dots[currentSlide].classList.remove('bg-copper-400', 'scale-125');
-            dots[currentSlide].classList.add('bg-copper-200/40');
+            function resize() {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+                hive.x = width > 768 ? width * 0.84 : width * 0.5;
+                hive.y = width > 768 ? height * 0.52 : height * 0.24;
+            }
+            window.addEventListener('resize', resize);
+            resize();
 
-            currentSlide = index;
+            function spawnBee(bee, initial) {
+                const edge = Math.floor(Math.random() * 3);
+                if (initial) {
+                    bee.x = Math.random() * width;
+                    bee.y = Math.random() * height;
+                } else if (edge === 0) {
+                    bee.x = -40;
+                    bee.y = Math.random() * height;
+                } else if (edge === 1) {
+                    bee.x = Math.random() * (width * 0.6);
+                    bee.y = -40;
+                } else {
+                    bee.x = Math.random() * (width * 0.6);
+                    bee.y = height + 40;
+                }
+                bee.vx = 0;
+                bee.vy = 0;
+                bee.speed = 1.1 + Math.random() * 0.9;
+                bee.wobble = Math.random() * Math.PI * 2;
+                bee.wobbleSpeed = 0.03 + Math.random() * 0.03;
+                bee.size = 12 + Math.random() * 4;
+                bee.wingPhase = Math.random() * Math.PI * 2;
+                bee.angle = 0;
+            }
 
-            slides[currentSlide].classList.remove('opacity-0', 'scale-100');
-            slides[currentSlide].classList.add('opacity-100', 'scale-105');
-            dots[currentSlide].classList.remove('bg-copper-200/40');
-            dots[currentSlide].classList.add('bg-copper-400', 'scale-125');
-        }
+            for (let i = 0; i < BEE_COUNT; i++) {
+                const b = {};
+                spawnBee(b, true);
+                bees.push(b);
+            }
 
-        setInterval(function() {
-            setSlide((currentSlide + 1) % slides.length);
-        }, 5500);
+            function getPointerPos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - rect.left,
+                    y: clientY - rect.top
+                };
+            }
 
+            canvas.addEventListener('mousedown', function(e) {
+                const pos = getPointerPos(e);
+                pointer = pos;
+                for (let i = bees.length - 1; i >= 0; i--) {
+                    const b = bees[i];
+                    if (Math.hypot(pos.x - b.x, pos.y - b.y) < 36) {
+                        draggedBee = b;
+                        canvas.style.cursor = 'grabbing';
+                        break;
+                    }
+                }
+            });
+
+            window.addEventListener('mousemove', function(e) {
+                const pos = getPointerPos(e);
+                pointer = pos;
+                if (draggedBee) {
+                    draggedBee.x = pos.x;
+                    draggedBee.y = pos.y;
+                } else {
+                    let hovering = false;
+                    for (let i = 0; i < bees.length; i++) {
+                        if (Math.hypot(pos.x - bees[i].x, pos.y - bees[i].y) < 36) {
+                            hovering = true;
+                            break;
+                        }
+                    }
+                    canvas.style.cursor = hovering ? 'grab' : 'default';
+                }
+            });
+
+            window.addEventListener('mouseup', function() {
+                if (draggedBee) {
+                    draggedBee = null;
+                    canvas.style.cursor = 'grab';
+                }
+            });
+
+            canvas.addEventListener('touchstart', function(e) {
+                const pos = getPointerPos(e);
+                pointer = pos;
+                for (let i = bees.length - 1; i >= 0; i--) {
+                    const b = bees[i];
+                    if (Math.hypot(pos.x - b.x, pos.y - b.y) < 44) {
+                        draggedBee = b;
+                        e.preventDefault();
+                        break;
+                    }
+                }
+            }, { passive: false });
+
+            window.addEventListener('touchmove', function(e) {
+                if (draggedBee) {
+                    const pos = getPointerPos(e);
+                    draggedBee.x = pos.x;
+                    draggedBee.y = pos.y;
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            window.addEventListener('touchend', function() {
+                draggedBee = null;
+            });
+
+            function drawHive() {
+                ctx.save();
+                ctx.translate(hive.x, hive.y);
+
+                // Teplá záře kolem úlu
+                const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, 130);
+                grad.addColorStop(0, 'rgba(200, 138, 107, 0.28)');
+                grad.addColorStop(1, 'rgba(200, 138, 107, 0)');
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, 130, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Vrstvy tradičního včelího úlu (košnice)
+                const layers = [
+                    { y: -42, w: 38, h: 15 },
+                    { y: -26, w: 54, h: 16 },
+                    { y: -9,  w: 66, h: 17 },
+                    { y: 9,   w: 72, h: 17 },
+                    { y: 27,  w: 74, h: 18 }
+                ];
+
+                ctx.fillStyle = '#2A1612';
+                ctx.strokeStyle = '#C88A6B';
+                ctx.lineWidth = 1.6;
+
+                layers.forEach(function(l) {
+                    ctx.beginPath();
+                    ctx.roundRect(-l.w / 2, l.y, l.w, l.h, 8);
+                    ctx.fill();
+                    ctx.stroke();
+                });
+
+                // Česno (vletový otvor)
+                ctx.fillStyle = '#120907';
+                ctx.beginPath();
+                ctx.arc(0, 29, 9, Math.PI, 0);
+                ctx.lineTo(9, 36);
+                ctx.lineTo(-9, 36);
+                ctx.closePath();
+                ctx.fill();
+                ctx.strokeStyle = '#E2B89E';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+
+                // Leták (dřívko pod česnem)
+                ctx.beginPath();
+                ctx.moveTo(-18, 37);
+                ctx.lineTo(18, 37);
+                ctx.strokeStyle = '#C88A6B';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            function drawBee(b, isDragged) {
+                ctx.save();
+                ctx.translate(b.x, b.y);
+                ctx.rotate(b.angle);
+                if (isDragged) {
+                    ctx.scale(1.35, 1.35);
+                }
+
+                const s = b.size;
+                const wingSwing = Math.sin(b.wingPhase) * 0.45;
+
+                // Křidélka
+                ctx.save();
+                ctx.fillStyle = 'rgba(243, 223, 209, 0.35)';
+                ctx.strokeStyle = 'rgba(226, 184, 158, 0.75)';
+                ctx.lineWidth = 1;
+
+                ctx.save();
+                ctx.rotate(-0.5 + wingSwing);
+                ctx.beginPath();
+                ctx.ellipse(-2, -s * 0.7, s * 0.55, s * 0.3, -0.3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+
+                ctx.save();
+                ctx.rotate(0.5 - wingSwing);
+                ctx.beginPath();
+                ctx.ellipse(-2, s * 0.7, s * 0.55, s * 0.3, 0.3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+                ctx.restore();
+
+                // Tělíčko včelky
+                ctx.fillStyle = '#C88A6B';
+                ctx.strokeStyle = '#F3DFD1';
+                ctx.lineWidth = 1.1;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, s * 0.85, s * 0.52, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+
+                // Tmavé proužky na zadečku
+                ctx.strokeStyle = '#120907';
+                ctx.lineWidth = 2.2;
+                ctx.beginPath();
+                ctx.moveTo(-s * 0.25, -s * 0.46);
+                ctx.lineTo(-s * 0.25, s * 0.46);
+                ctx.moveTo(s * 0.1, -s * 0.48);
+                ctx.lineTo(s * 0.1, s * 0.48);
+                ctx.stroke();
+
+                // Hlavička
+                ctx.fillStyle = '#1C0E0B';
+                ctx.beginPath();
+                ctx.arc(s * 0.75, 0, s * 0.32, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                drawHive();
+
+                const targetX = hive.x;
+                const targetY = hive.y + 28;
+
+                bees.forEach(function(b) {
+                    if (b === draggedBee) {
+                        b.wingPhase += 0.85;
+                        b.angle += Math.sin(b.wingPhase) * 0.08;
+                        drawBee(b, true);
+                        return;
+                    }
+
+                    b.wobble += b.wobbleSpeed;
+                    b.wingPhase += 0.35;
+
+                    const dx = targetX - b.x;
+                    const dy = targetY - b.y;
+                    const dist = Math.hypot(dx, dy);
+
+                    // Když včelka vletí do česna, vynoří se nová na kraji obrazovky
+                    if (dist < 16) {
+                        spawnBee(b, false);
+                        return;
+                    }
+
+                    const baseAngle = Math.atan2(dy, dx);
+                    const perpAngle = baseAngle + Math.PI / 2;
+                    const wave = Math.sin(b.wobble) * 0.75;
+
+                    b.vx = Math.cos(baseAngle) * b.speed + Math.cos(perpAngle) * wave;
+                    b.vy = Math.sin(baseAngle) * b.speed + Math.sin(perpAngle) * wave;
+
+                    b.x += b.vx;
+                    b.y += b.vy;
+                    b.angle = Math.atan2(b.vy, b.vx);
+
+                    drawBee(b, false);
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // --- OSTATNÍ FUNKCE WEBU (GALERIE, KALKULAČKA, KOŠÍK) ---
         function scrollGallery(direction) {
             const rail = document.getElementById('product-rail');
             rail.scrollBy({ left: direction * 380, behavior: 'smooth' });
