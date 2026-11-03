@@ -57,7 +57,7 @@
 
         <canvas id="bee-canvas" class="absolute inset-0 w-full h-full z-10 cursor-grab"></canvas>
 
-        <!-- HORNÍ NAVIGACE (Pořadí: Sortiment | Vánoční trhy | B2B | Kontakt) -->
+        <!-- HORNÍ NAVIGACE -->
         <nav class="relative z-20 w-full px-6 md:px-14 py-7 flex items-center justify-between pointer-events-none">
             <a href="#" class="flex items-center gap-3.5 group pointer-events-auto">
                 <div class="w-11 h-11 rounded-full bg-lid-800 border border-copper-400/70 flex items-center justify-center shadow-lg group-hover:border-copper-200 transition">
@@ -100,7 +100,7 @@
             </h1>
         </div>
 
-        <!-- SPODNÍ TROJDÍLNÁ LIŠTA (Pořadí: Sortiment | Vánoční trhy | B2B) -->
+        <!-- SPODNÍ LIŠTA -->
         <div class="relative z-20 w-full flex justify-end pointer-events-none">
             <div class="grid grid-cols-3 w-full md:w-auto md:min-w-[640px] shadow-2xl pointer-events-auto">
                 <a href="#sortiment" class="bg-lid-800 hover:bg-lid-700 text-copper-200 py-5 px-4 md:px-10 text-center text-xs font-bold tracking-[0.2em] uppercase transition border-t border-l border-copper-400/20 flex items-center justify-center">
@@ -116,22 +116,18 @@
         </div>
     </header>
 
-    <!-- 2. SEKCE SORTIMENT (B2C) — Nahoře, bez posuvníku u dárků, s přehlednými kategoriemi -->
+    <!-- 2. SEKCE SORTIMENT (B2C) -->
     <section id="sortiment" class="py-24 md:py-32 bg-lid-900 border-t border-copper-400/15">
         <div class="max-w-7xl mx-auto px-6 md:px-14">
             
-            <!-- Hlavní nadpis sekce -->
             <div class="max-w-3xl mb-16">
                 <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">B2C nabídka</span>
                 <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-6">
                     Sortiment U trubců
                 </h2>
-                <p class="text-copper-200/80 text-sm md:text-base leading-relaxed font-light">
-                    Všechna dárková balení obsahují produkty včelího snažení, každé je ale unikátní, ručně připraveno (zatím člověkem, školení zaměstnankyň proběhne až si odpočinou).
-                </p>
             </div>
 
-            <!-- Vlajkový produkt: Dárkové balení (bez posuvníku) -->
+            <!-- Vlajkový produkt: Dárkové balení s tvým přesným textem -->
             <div class="bg-lid-950 border border-copper-400/30 p-8 md:p-12 mb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-2xl">
                 <div class="lg:col-span-6 aspect-[16/10] bg-lid-900 border border-copper-400/20 overflow-hidden relative">
                     <img src="img/svicky-prirodni.jpg" alt="Dárkové balení Honigkammer" class="w-full h-full object-cover">
@@ -139,16 +135,16 @@
                 </div>
                 <div class="lg:col-span-6 space-y-6">
                     <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block">Dárková edice</span>
-                    <h3 class="font-serif text-3xl md:text-4xl text-copper-200">Dárkové balení Honigkammer</h3>
+                    <h3 class="font-serif text-3xl md:text-4xl text-copper-200">Dárková balení</h3>
                     <p class="text-xs md:text-sm text-copper-200/80 leading-relaxed">
-                        Kombinace poctivého medu a ručně odlévaných svíček ze včelího vosku v dřevité vlně, zabalená pod naším originálním měděným víčkem. Ideální dárek pro radost.
+                        Všechna dárková balení obsahují produkty včelího snažení, každé je ale unikátní, ručně připraveno (zatím člověkem, školení zaměstnankyň proběhne až si odpočinou)
                     </p>
                     <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                         <div>
                             <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Cena za kus</span>
                             <span class="font-serif text-3xl text-copper-300 font-bold">490 Kč</span>
                         </div>
-                        <button type="button" onclick="addToCart('Dárkové balení Honigkammer', '490 Kč')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] px-7 py-3.5 transition">
+                        <button type="button" onclick="addToCart('Dárková balení', '490 Kč')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] px-7 py-3.5 transition">
                             + Přidat do poptávky
                         </button>
                     </div>
@@ -244,7 +240,7 @@
             <!-- KATEGORIE 3: OSTATNÍ TVORBA -->
             <div>
                 <div class="border-b border-copper-400/20 pb-4 mb-8">
-                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 block mb-1">Rukodělný originál</span>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-1">Rukodělný originál</span>
                     <h3 class="font-serif text-3xl text-copper-200">Ostatní tvorba</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -353,7 +349,7 @@
         </div>
     </section>
 
-    <!-- 4. SEKCE B2B — Zde je přesunutá množstevní kalkulačka pro dárková balení -->
+    <!-- 4. SEKCE B2B — Zde je kalkulačka pro dárková balení -->
     <section id="b2b" class="py-24 md:py-32 bg-lid-950 border-t border-copper-400/20">
         <div class="max-w-7xl mx-auto px-6 md:px-14">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -369,7 +365,7 @@
                         </p>
                     </div>
 
-                    <!-- Množstevní kalkulačka přesunutá sem do B2B -->
+                    <!-- Kalkulačka dárkových balení v B2B -->
                     <div class="bg-lid-900 border border-copper-400/30 p-6 md:p-8 shadow-2xl">
                         <span class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 block mb-2">Velkoobchodní kalkulačka dárkových balení</span>
                         <div class="flex justify-between items-end mb-4">
@@ -840,7 +836,7 @@
             const unitText = document.getElementById('gift-unit-label').textContent;
             const totalText = document.getElementById('gift-total-label').textContent;
             cart.push({
-                name: 'B2B Dárkové balení (' + qty + ' ks × ' + unitText + ')',
+                name: 'B2B Dárková balení (' + qty + ' ks × ' + unitText + ')',
                 price: totalText
             });
             renderCart();
