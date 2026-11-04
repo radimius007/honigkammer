@@ -88,7 +88,7 @@
             </div>
 
             <button type="button" onclick="toggleCart()" class="pointer-events-auto flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
-                <span>Poptávka</span>
+                <span>Košík</span>
                 <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
             </button>
         </nav>
@@ -116,22 +116,20 @@
         </div>
     </header>
 
-    <!-- 2. SEKCE SORTIMENT (B2C) -->
+    <!-- 2. SEKCE SORTIMENT -->
     <section id="sortiment" class="py-24 md:py-32 bg-lid-900 border-t border-copper-400/15">
         <div class="max-w-7xl mx-auto px-6 md:px-14">
             
             <div class="max-w-3xl mb-16">
-                <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">nabídka</span>
                 <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-6">
-                    Sortiment U trubců
+                    Sortiment
                 </h2>
             </div>
 
-            <!-- Vlajkový produkt: Dárkové balení s tvým přesným textem -->
+            <!-- Vlajkový produkt: Dárková balení -->
             <div class="bg-lid-950 border border-copper-400/30 p-8 md:p-12 mb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-2xl">
                 <div class="lg:col-span-6 aspect-[16/10] bg-lid-900 border border-copper-400/20 overflow-hidden relative">
-                    <img src="img/svicky-prirodni.jpg" alt="Dárkové balení Honigkammer" class="w-full h-full object-cover">
-                    <span class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-3 py-1 text-copper-400 border border-copper-400/30">Vlajková loď</span>
+                    <img src="img/svicky-prirodni.jpg" alt="Dárková balení Honigkammer" class="w-full h-full object-cover">
                 </div>
                 <div class="lg:col-span-6 space-y-6">
                     <h3 class="font-serif text-3xl md:text-4xl text-copper-200">Dárková balení</h3>
@@ -144,7 +142,7 @@
                             <span class="font-serif text-3xl text-copper-300 font-bold">490 Kč</span>
                         </div>
                         <button type="button" onclick="addToCart('Dárková balení', '490 Kč')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] px-7 py-3.5 transition">
-                            + Přidat do poptávky
+                            Přidat do košíku
                         </button>
                     </div>
                 </div>
@@ -153,22 +151,20 @@
             <!-- KATEGORIE 1: MED -->
             <div class="mb-16">
                 <div class="border-b border-copper-400/20 pb-4 mb-8">
-                    <h3 class="font-serif text-3xl text-copper-200">Med z našich úlů</h3>
+                    <h3 class="font-serif text-3xl text-copper-200">Med</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-lid-950 border border-copper-400/20 p-7 flex flex-col justify-between hover:border-copper-400/50 transition">
                         <div>
                             <div class="aspect-[16/9] bg-lid-900 mb-6 flex items-center justify-center border border-copper-400/15 relative">
                                 <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60">Foto sklenice brzy</span>
-                                <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950 px-2.5 py-1 text-copper-400">Květový / Pastovaný</span>
                             </div>
-                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Květový a pastovaný med</h4>
-                            <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Jarní nektar ze sadů a luk, šetrně míchaný do krémové konzistence i klasický tekutý.</p>
+                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Květový</h4>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">240 Kč</span>
-                            <button type="button" onclick="addToCart('Květový / pastovaný med', '240 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
-                                + Vybrat
+                            <button type="button" onclick="addToCart('Květový med', '240 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                                Přidat do košíku
                             </button>
                         </div>
                     </div>
@@ -177,40 +173,37 @@
                         <div>
                             <div class="aspect-[16/9] bg-lid-900 mb-6 flex items-center justify-center border border-copper-400/15 relative">
                                 <span class="text-xs uppercase tracking-[0.2em] text-copper-300/60">Foto sklenice brzy</span>
-                                <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950 px-2.5 py-1 text-copper-400">Medovicový</span>
                             </div>
-                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Lesní medovicový med</h4>
-                            <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Tmavý med s výraznou minerální chutí a pomalou krystalizací pod naším měděným víčkem.</p>
+                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Lesní</h4>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">280 Kč</span>
-                            <button type="button" onclick="addToCart('Lesní medovicový med', '280 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
-                                + Vybrat
+                            <button type="button" onclick="addToCart('Lesní med', '280 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                                Přidat do košíku
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- KATEGORIE 2: SVÍČKY ZE VČELÍHO VOSKU -->
-            <div class="mb-16">
+            <!-- KATEGORIE 2: SVÍČKY -->
+            <div>
                 <div class="border-b border-copper-400/20 pb-4 mb-8">
-                    <h3 class="font-serif text-3xl text-copper-200">Svíčky ze včelího vosku</h3>
+                    <h3 class="font-serif text-3xl text-copper-200">Svíčky</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-lid-950 border border-copper-400/20 p-7 flex flex-col justify-between hover:border-copper-400/50 transition">
                         <div>
                             <div class="aspect-[16/9] bg-lid-900 mb-6 overflow-hidden border border-copper-400/15 relative">
-                                <img src="img/svicky-prirodni.jpg" alt="Reliéfní svíčky z vosku" class="w-full h-full object-cover">
+                                <img src="img/svicky-prirodni.jpg" alt="Vrstvená z roztaveného vosku" class="w-full h-full object-cover">
                                 <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">100% Včelí vosk</span>
                             </div>
-                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Reliéfní svíčky z vosku</h4>
-                            <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Ručně odlévané svíčky s detailními motivy včelí plástve, růže či veverky. Přirozená medová vůně.</p>
+                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Vrstvená z roztaveného vosku</h4>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">190 Kč</span>
-                            <button type="button" onclick="addToCart('Reliéfní svíčka z vosku', '190 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
-                                + Vybrat
+                            <button type="button" onclick="addToCart('Vrstvená svíčka z vosku', '190 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                                Přidat do košíku
                             </button>
                         </div>
                     </div>
@@ -218,42 +211,15 @@
                     <div class="bg-lid-950 border border-copper-400/20 p-7 flex flex-col justify-between hover:border-copper-400/50 transition">
                         <div>
                             <div class="aspect-[16/9] bg-lid-900 mb-6 overflow-hidden border border-copper-400/15 relative">
-                                <img src="img/svicka-medved.jpg" alt="Medvěd v kmeni & Oříšek" class="w-full h-full object-cover">
-                                <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">Dárkové motivy</span>
+                                <img src="img/svicka-medved.jpg" alt="Odlévaná, rozličných tvarů" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">100% Včelí vosk</span>
                             </div>
-                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Medvěd v kmeni & Oříšek</h4>
-                            <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Detailní plastické odlitky z čistého včelího vosku – medvídek v dutině stromu nebo spící zvířátko.</p>
+                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Odlévaná, rozličných tvarů</h4>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">210 Kč</span>
-                            <button type="button" onclick="addToCart('Svíčka Medvěd / Oříšek', '210 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
-                                + Vybrat
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KATEGORIE 3: OSTATNÍ TVORBA -->
-            <div>
-                <div class="border-b border-copper-400/20 pb-4 mb-8">
-                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-1">Rukodělný originál</span>
-                    <h3 class="font-serif text-3xl text-copper-200">Ostatní tvorba</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-lid-950 border border-copper-400/20 p-7 flex flex-col justify-between hover:border-copper-400/50 transition">
-                        <div>
-                            <div class="aspect-[16/9] bg-lid-900 mb-6 overflow-hidden border border-copper-400/15 relative">
-                                <img src="img/fantasy-figurky.jpg" alt="Autorské fantasy figurky" class="w-full h-full object-cover">
-                                <span class="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-lid-950/90 px-2.5 py-1 text-copper-400">Limitovaná série</span>
-                            </div>
-                            <h4 class="font-serif text-2xl text-copper-200 mb-2">Autorské fantasy figurky</h4>
-                            <p class="text-xs text-copper-200/70 leading-relaxed mb-6">Ručně tvoření lesní skřítci a bytosti s propracovanými detaily. Každý kus je neopakovatelný originál.</p>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
-                            <span class="font-serif text-2xl text-copper-300">Dle výběru</span>
-                            <button type="button" onclick="addToCart('Autorská fantasy figurka', 'Individuální')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
-                                + Poptat
+                            <button type="button" onclick="addToCart('Odlévaná svíčka', '210 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                                Přidat do košíku
                             </button>
                         </div>
                     </div>
@@ -263,207 +229,126 @@
         </div>
     </section>
 
-    <!-- 3. PRIORITNÍ SEKCE: PRO POŘADATELE VÁNOČNÍCH A FARMÁŘSKÝCH TRHŮ -->
+    <!-- 3. SEKCE VÁNOČNÍ TRHY -->
     <section id="vanoce-trhy" class="py-24 md:py-32 bg-lid-800 border-t-2 border-copper-400/40 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 md:px-14">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <div class="lg:col-span-6">
-                    <div class="inline-block bg-copper-400 text-lid-950 font-extrabold text-[10px] uppercase tracking-[0.25em] px-3 py-1 mb-4">
-                        Pro pořadatele akcí a trhů
-                    </div>
-                    <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-6 leading-tight">
-                        Vánoční, adventní a farmářské trhy
-                    </h2>
-                    <p class="text-sm md:text-base text-copper-200/85 leading-relaxed mb-8">
-                        Hledáte pro svůj trh řemeslný sortiment s estetickou prezentací? Stánek U trubců je laděný do jednotného tmavě hnědého a měděného stylu, s čistým dřevěným aranžmá, teplým nasvícením dárkových balení a vůní včelího vosku.
-                    </p>
+            <div class="max-w-3xl">
+                <div class="inline-block bg-copper-400 text-lid-950 font-extrabold text-[10px] uppercase tracking-[0.25em] px-3 py-1 mb-4">
+                    Pro pořadatele akcí a trhů
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-6 leading-tight">
+                    Vánoční, adventní a farmářské trhy
+                </h2>
+                <p class="text-sm md:text-base text-copper-200/85 leading-relaxed mb-8">
+                    Hledáte pro svůj trh řemeslný sortiment s estetickou prezentací? Stánek U trubců je laděný do jednotného tmavě hnědého a měděného stylu, s čistým dřevěným aranžmá, teplým nasvícením dárkových balení a vůní včelího vosku.
+                </p>
 
-                    <div class="bg-lid-950/90 border border-copper-400/30 p-6 md:p-8 space-y-4 text-xs mb-8 shadow-xl">
-                        <h3 class="font-serif text-2xl text-copper-300 mb-2">Technická specifikace prodeje</h3>
-                        <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
-                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Sortiment stánku:</span>
-                            <span class="text-copper-200 font-semibold text-right">Dárková balení, medy, svíčky z vosku, autorské figurky</span>
-                        </div>
-                        <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
-                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Prodejní plocha:</span>
-                            <span class="text-copper-200 font-semibold text-right">Stánek 2×2 m nebo 3×2 m (příp. vlastní dřevěný pult)</span>
-                        </div>
-                        <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
-                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Přípojka elektřiny:</span>
-                            <span class="text-copper-200 font-semibold text-right">230 V / odběr do 500 W (pouze LED osvětlení a terminál)</span>
-                        </div>
-                        <div class="flex justify-between gap-4 py-2">
-                            <span class="uppercase tracking-[0.15em] text-copper-300/70">Doklady & IČO:</span>
-                            <span class="text-copper-200 font-semibold text-right">Radim Semerád, IČO: 17635331</span>
-                        </div>
+                <div class="bg-lid-950/90 border border-copper-400/30 p-6 md:p-8 space-y-4 text-xs mb-8 shadow-xl">
+                    <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Sortiment stánku:</span>
+                        <span class="text-copper-200 font-semibold text-right">Dárková balení, medy, svíčky z vosku, autorské figurky</span>
                     </div>
-
-                    <div class="flex flex-wrap items-center gap-4 text-xs">
-                        <a href="tel:+420739809805" class="bg-lid-950 hover:bg-lid-900 border border-copper-400/50 text-copper-200 px-5 py-3.5 font-bold tracking-[0.15em] uppercase transition">
-                            📞 +420 739 809 805
-                        </a>
-                        <a href="mailto:radimsemerad@gmail.com" class="bg-lid-950 hover:bg-lid-900 border border-copper-400/50 text-copper-200 px-5 py-3.5 font-bold tracking-[0.15em] uppercase transition">
-                            ✉️ radimsemerad@gmail.com
-                        </a>
+                    <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Prodejní plocha:</span>
+                        <span class="text-copper-200 font-semibold text-right">Stánek 2×2 m nebo 3×2 m (příp. vlastní dřevěný pult)</span>
+                    </div>
+                    <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Přípojka elektřiny:</span>
+                        <span class="text-copper-200 font-semibold text-right">230 V / odběr do 500 W (pouze LED osvětlení a terminál)</span>
+                    </div>
+                    <div class="flex justify-between gap-4 py-2">
+                        <span class="uppercase tracking-[0.15em] text-copper-300/70">Doklady & IČO:</span>
+                        <span class="text-copper-200 font-semibold text-right">Radim Semerád, IČO: 17635331</span>
                     </div>
                 </div>
 
-                <div class="lg:col-span-6 bg-lid-950 border-2 border-copper-400/40 p-8 md:p-10 shadow-2xl">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Přímý kontakt pro organizátory</span>
-                    <h3 class="font-serif text-3xl text-copper-200 mb-3">Nabídka místa / Dotaz k účasti na trhu</h3>
-                    <p class="text-xs text-copper-200/70 mb-6 leading-relaxed">
-                        Máte volnou kapacitu na vánočních či farmářských trzích, nebo potřebujete doplnit podklady k naší přihlášce? Napište nám přímo zde:
-                    </p>
-
-                    <form onsubmit="submitMarketForm(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Název akce / Město / Pořadatel *</label>
-                            <input id="market-name" type="text" required class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400">
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Termín konání</label>
-                                <input id="market-date" type="text" class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Váš e-mail nebo telefon *</label>
-                                <input id="market-contact" type="text" required class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Zpráva nebo detaily k místu</label>
-                            <textarea id="market-notes" rows="4" class="w-full bg-lid-900 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-extrabold text-xs uppercase tracking-[0.2em] py-4 transition shadow-lg">
-                            Odeslat zprávu k vánočním trhům
-                        </button>
-                        <p id="market-feedback" class="text-xs text-copper-300 hidden pt-2"></p>
-                    </form>
+                <div class="flex flex-wrap items-center gap-4 text-xs">
+                    <a href="tel:+420739809805" class="bg-lid-950 hover:bg-lid-900 border border-copper-400/50 text-copper-200 px-5 py-3.5 font-bold tracking-[0.15em] uppercase transition">
+                        📞 +420 739 809 805
+                    </a>
+                    <a href="mailto:radimsemerad@gmail.com" class="bg-lid-950 hover:bg-lid-900 border border-copper-400/50 text-copper-200 px-5 py-3.5 font-bold tracking-[0.15em] uppercase transition">
+                        ✉️ radimsemerad@gmail.com
+                    </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 4. SEKCE B2B — Zde je kalkulačka pro dárková balení -->
+    <!-- 4. SEKCE B2B -->
     <section id="b2b" class="py-24 md:py-32 bg-lid-950 border-t border-copper-400/20">
         <div class="max-w-7xl mx-auto px-6 md:px-14">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <div class="lg:col-span-6 space-y-8">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-3">Pro firmy a partnery (B2B)</span>
-                        <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-4 leading-tight">
-                            Firemní dárky, které neskončí v koši
-                        </h2>
-                        <p class="text-sm text-copper-200/75 leading-relaxed">
-                            Připravíme dárková balení na míru v barvách U trubců s dřevitou vlnou a visačkou či etiketou vaší společnosti. Daňově uznatelný propagační předmět do 500 Kč bez DPH.
-                        </p>
-                    </div>
-
-                    <!-- Kalkulačka dárkových balení v B2B -->
-                    <div class="bg-lid-900 border border-copper-400/30 p-6 md:p-8 shadow-2xl">
-                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 block mb-2">Velkoobchodní kalkulačka dárkových balení</span>
-                        <div class="flex justify-between items-end mb-4">
-                            <div>
-                                <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/70">Počet balení</span>
-                                <span id="gift-qty-label" class="font-serif text-3xl text-copper-200 font-bold">10 ks</span>
-                            </div>
-                            <div class="text-right bg-lid-950 border border-copper-400/50 px-4 py-2">
-                                <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300">Cena za 1 kus</span>
-                                <span id="gift-unit-label" class="font-serif text-3xl text-copper-400 font-bold">475 Kč</span>
-                                <span class="text-xs text-copper-300/70"> / ks</span>
-                            </div>
-                        </div>
-
-                        <input id="gift-slider" type="range" min="1" max="120" step="1" value="10" oninput="updateGiftCalc()" class="w-full accent-copper-400 cursor-pointer mb-4">
-
-                        <div class="grid grid-cols-4 gap-1.5 text-center text-[10px] mb-4">
-                            <div id="gtier-1" class="p-1.5 border border-copper-400/15 text-copper-300/60">
-                                <span class="block font-bold">1–9 ks</span>
-                                <span>490 Kč</span>
-                            </div>
-                            <div id="gtier-2" class="p-1.5 border border-copper-400 bg-copper-400/15 text-copper-200">
-                                <span class="block font-bold">10–29 ks</span>
-                                <span>475 Kč</span>
-                            </div>
-                            <div id="gtier-3" class="p-1.5 border border-copper-400/15 text-copper-300/60">
-                                <span class="block font-bold">30–59 ks</span>
-                                <span>460 Kč</span>
-                            </div>
-                            <div id="gtier-4" class="p-1.5 border border-copper-400/15 text-copper-300/60">
-                                <span class="block font-bold">60+ ks</span>
-                                <span>445 Kč</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-4 border-t border-copper-400/15 mb-6">
-                            <div>
-                                <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Celkem bez DPH</span>
-                                <span id="gift-total-label" class="font-serif text-2xl text-copper-200 font-bold">4 750 Kč</span>
-                            </div>
-                        </div>
-
-                        <button type="button" onclick="addGiftToCart()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-3.5 transition">
-                            Přidat velkoobchodní balíčky do poptávky
-                        </button>
-                    </div>
-
-                    <div class="bg-lid-900 border-l-2 border-copper-400 p-6 md:p-8 shadow-xl">
-                        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Firemní včelstva na klíč & ESG</span>
-                        <h3 class="font-serif text-2xl md:text-3xl text-copper-200 mb-3">
-                            „Chcete stovky tisíc zaměstnankyň za cenu jedné osoby v kosmonautském?“
-                        </h3>
-                        <p class="text-xs md:text-sm text-copper-200/75 leading-relaxed mb-5">
-                            Umístíme a budeme kompletně obsluhovat včelí úly přímo na pozemku nebo střeše vaší firmy. Bez starostí, s pravidelným servisem včelaře a vlastní sklizní medu pod vaší firemní značkou.
-                        </p>
-                        <button type="button" onclick="addToCart('B2B: Pronájem a správa firemního včelstva', 'Individuální kalkulace')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 text-xs font-bold uppercase tracking-[0.2em] px-6 py-3.5 transition">
-                            + Přidat včely do B2B poptávky
-                        </button>
-                    </div>
-                </div>
-
-                <div id="b2b-form-box" class="lg:col-span-6 bg-lid-900 border border-copper-400/25 p-8 md:p-10 shadow-xl">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-copper-400 block mb-2">Poptávkový formulář — B2B</span>
-                    <h3 class="font-serif text-3xl text-copper-200 mb-3">Nezávazná firemní poptávka</h3>
-                    <p class="text-xs text-copper-200/70 mb-6 leading-relaxed">
-                        Poptáváte firemní dárková balení, vlastní etikety nebo pronájem včelstva? Ozveme se vám s kalkulací.
+            <div class="max-w-3xl space-y-8">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-copper-400 block mb-3">Pro firmy a partnery (B2B)</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-copper-200 mb-4 leading-tight">
+                        Firemní dárková balení
+                    </h2>
+                    <p class="text-sm text-copper-200/75 leading-relaxed mb-6">
+                        Připravíme dárková balení na míru v barvách U trubců či dle Vašich požadavků. Daňově uznatelný propagační předmět do 500 Kč bez DPH.
                     </p>
-
-                    <form onsubmit="submitB2BForm(event)" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Jméno / Společnost *</label>
-                                <input id="b2b-name" type="text" required class="w-full bg-lid-950 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">E-mail nebo telefon *</label>
-                                <input id="b2b-contact" type="text" required class="w-full bg-lid-950 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/80 mb-1.5">Poptávané položky / Počet kusů / Dotaz</label>
-                            <textarea id="order-notes" rows="4" class="w-full bg-lid-950 border border-copper-400/30 px-4 py-3 text-sm text-copper-200 focus:outline-none focus:border-copper-400"></textarea>
-                        </div>
-                        <button type="submit" class="w-full border border-copper-400 bg-copper-400/15 hover:bg-copper-400 text-copper-200 hover:text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
-                            Odeslat B2B poptávku
-                        </button>
-                        <p id="b2b-feedback" class="text-xs text-copper-300 hidden pt-2"></p>
-                    </form>
+                    <div class="flex flex-wrap gap-6 text-xs uppercase tracking-[0.18em] text-copper-300">
+                        <span>✓ Vlastní etiketa</span>
+                        <span>✓ Fakturace na IČO</span>
+                        <span>✓ Doprava po ČR</span>
+                    </div>
                 </div>
 
+                <!-- Kalkulačka dárkových balení v B2B -->
+                <div class="bg-lid-900 border border-copper-400/30 p-6 md:p-8 shadow-2xl">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 block mb-2">Kalkulačka dárkových balení</span>
+                    <div class="flex justify-between items-end mb-4">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/70">Počet balení</span>
+                            <span id="gift-qty-label" class="font-serif text-3xl text-copper-200 font-bold">10 ks</span>
+                        </div>
+                        <div class="text-right bg-lid-950 border border-copper-400/50 px-4 py-2">
+                            <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300">Cena za 1 kus</span>
+                            <span id="gift-unit-label" class="font-serif text-3xl text-copper-400 font-bold">475 Kč</span>
+                            <span class="text-xs text-copper-300/70"> / ks</span>
+                        </div>
+                    </div>
+
+                    <input id="gift-slider" type="range" min="1" max="120" step="1" value="10" oninput="updateGiftCalc()" class="w-full accent-copper-400 cursor-pointer mb-4">
+
+                    <div class="grid grid-cols-4 gap-1.5 text-center text-[10px] mb-4">
+                        <div id="gtier-1" class="p-1.5 border border-copper-400/15 text-copper-300/60">
+                            <span class="block font-bold">1–9 ks</span>
+                            <span>490 Kč</span>
+                        </div>
+                        <div id="gtier-2" class="p-1.5 border border-copper-400 bg-copper-400/15 text-copper-200">
+                            <span class="block font-bold">10–29 ks</span>
+                            <span>475 Kč</span>
+                        </div>
+                        <div id="gtier-3" class="p-1.5 border border-copper-400/15 text-copper-300/60">
+                            <span class="block font-bold">30–59 ks</span>
+                            <span>460 Kč</span>
+                        </div>
+                        <div id="gtier-4" class="p-1.5 border border-copper-400/15 text-copper-300/60">
+                            <span class="block font-bold">60+ ks</span>
+                            <span>445 Kč</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-copper-400/15 mb-6">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Celkem (uvedeno bez DPH)</span>
+                            <span id="gift-total-label" class="font-serif text-2xl text-copper-200 font-bold">4 750 Kč</span>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="addGiftToCart()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-3.5 transition">
+                        Poptat
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. PATIČKA A PŘÍMÉ KONTAKTY -->
+    <!-- 5. PATIČKA -->
     <footer id="kontakt" class="bg-lid-950 border-t border-copper-400/20 py-16 px-6 md:px-14">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-            
             <div>
                 <span class="font-serif text-3xl font-bold tracking-wider text-copper-200 uppercase block mb-1">U trubců</span>
-                <span class="text-[10px] uppercase tracking-[0.25em] text-copper-400 block mb-2 font-semibold">Honigkammer</span>
                 <p class="text-xs uppercase tracking-[0.2em] text-copper-400/80">
                     Včelky pracují, my prodáváme.
                 </p>
@@ -488,24 +373,23 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </footer>
 
-    <!-- POSTRANNÍ POPTÁVKOVÝ PANEL -->
+    <!-- POSTRANNÍ KOŠÍK -->
     <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-lid-900 border-l border-copper-400/30 p-8 translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
         <div>
             <div class="flex items-center justify-between pb-6 border-b border-copper-400/20">
-                <h3 class="font-serif text-2xl text-copper-200">Vybrané položky</h3>
+                <h3 class="font-serif text-2xl text-copper-200">Košík</h3>
                 <button type="button" onclick="toggleCart()" class="text-xs uppercase tracking-[0.2em] text-copper-400">Zavřít ✕</button>
             </div>
             <div id="cart-items" class="py-6 space-y-4 text-sm">
-                <p class="text-copper-300/60 text-xs">Zatím jste nevybrali žádné položky.</p>
+                <p class="text-copper-300/60 text-xs">Váš košík je zatím prázdný.</p>
             </div>
         </div>
         <div class="pt-6 border-t border-copper-400/20">
-            <button type="button" onclick="transferCartToForm()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
-                Propis do poptávkového formuláře
+            <button type="button" onclick="alert('Pokračování k výběru dopravy a platby připravujeme.')" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
+                Pokračovat k dopravě a platbě
             </button>
         </div>
     </div>
@@ -787,7 +671,7 @@
             animate();
         })();
 
-        // --- SKRIPT PRO B2B KALKULAČKU ---
+        // --- SKRIPT PRO KALKULAČKU ---
         function updateGiftCalc() {
             const qty = parseInt(document.getElementById('gift-slider').value, 10);
             let unitPrice = 490;
@@ -833,7 +717,7 @@
             const unitText = document.getElementById('gift-unit-label').textContent;
             const totalText = document.getElementById('gift-total-label').textContent;
             cart.push({
-                name: 'B2B Dárková balení (' + qty + ' ks × ' + unitText + ')',
+                name: 'Firemní dárková balení (' + qty + ' ks × ' + unitText + ')',
                 price: totalText
             });
             renderCart();
@@ -844,7 +728,7 @@
             document.getElementById('cart-count').textContent = cart.length;
             const container = document.getElementById('cart-items');
             if (cart.length === 0) {
-                container.innerHTML = '<p class="text-copper-300/60 text-xs">Zatím jste nevybrali žádné položky.</p>';
+                container.innerHTML = '<p class="text-copper-300/60 text-xs">Váš košík je zatím prázdný.</p>';
                 return;
             }
             container.innerHTML = cart.map(function(item, idx) {
@@ -868,29 +752,6 @@
             } else {
                 drawer.classList.toggle('translate-x-full');
             }
-        }
-
-        function transferCartToForm() {
-            const notes = document.getElementById('order-notes');
-            notes.value = "Poptávané položky:\n" + cart.map(function(i) {
-                return "- " + i.name + " (" + i.price + ")";
-            }).join("\n");
-            toggleCart(false);
-            document.getElementById('b2b-form-box').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function submitMarketForm(e) {
-            e.preventDefault();
-            const fb = document.getElementById('market-feedback');
-            fb.textContent = "Děkujeme! Zpráva pro vánoční trhy je připravena. Pro okamžité spojení můžete zavolat na +420 739 809 805.";
-            fb.classList.remove('hidden');
-        }
-
-        function submitB2BForm(e) {
-            e.preventDefault();
-            const fb = document.getElementById('b2b-feedback');
-            fb.textContent = "Děkujeme za poptávku! Ozveme se vám co nejdříve.";
-            fb.classList.remove('hidden');
         }
     </script>
 </body>
