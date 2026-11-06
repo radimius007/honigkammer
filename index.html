@@ -88,12 +88,6 @@
             </div>
 
             <div class="flex items-center gap-3 pointer-events-auto">
-                <!-- EASTER EGG: Unavený trubec s kafem -->
-                <button type="button" onclick="triggerEasterEgg()" class="text-xs bg-lid-900 hover:bg-lid-800 text-copper-300 px-3 py-2 border border-copper-400/30 transition flex items-center gap-1.5 cursor-pointer shadow-lg" title="Klikni na unaveného trubce...">
-                    <span>🐝☕</span>
-                    <span class="hidden sm:inline text-[10px] uppercase tracking-wider text-copper-400">Trubec offline</span>
-                </button>
-
                 <button type="button" onclick="toggleCart()" class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
                     <span>Košík</span>
                     <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
@@ -408,7 +402,7 @@
             <span class="text-3xl">🐝☕</span>
             <h3 class="font-serif text-2xl text-copper-200">Úspěšně vyrušen trubec</h3>
             <p class="text-xs text-copper-200/80 leading-relaxed">
-                Právě jsi vzbudil trubce, který měl v plánu celou zimu jen pít kávu a nic nedělat. Za trest (nebo odměnu za pozornost) ti dáváme tajnou slevu <strong class="text-copper-400">5 %</strong> na dárkové balení.
+                Právě jsi chytil za letu trubce, který měl v plánu celou zimu jen pít kávu a nic nedělat. Za odměnu za tvoji pozornost ti dáváme tajnou slevu <strong class="text-copper-400">5 %</strong> na dárkové balení.
             </p>
             <div class="bg-lid-950 border border-copper-400/30 py-3 font-mono text-sm tracking-widest text-copper-300 font-bold select-all">
                 TRUBEC5
@@ -419,7 +413,7 @@
     </div>
 
     <script>
-        // --- INTERAKTIVNÍ VČELKY LETÍCÍ K ÚLU (CANVAS) ---
+        // --- INTERAKTIVNÍ VČELKY LETÍCÍ K ÚLU (VČETNĚ TRUBCE S KAFEM) ---
         (function() {
             const canvas = document.getElementById('bee-canvas');
             const ctx = canvas.getContext('2d');
@@ -427,8 +421,9 @@
             let height = 0;
             let hive = { x: 0, y: 0 };
             const bees = [];
-            const BEE_COUNT = 14;
+            const BEE_COUNT = 13; // 13 normálních včel + 1 trubec s kafem
             let draggedBee = null;
+            let clickedBee = null;
 
             function resize() {
                 width = canvas.width = canvas.offsetWidth;
@@ -456,19 +451,25 @@
                 }
                 bee.vx = 0;
                 bee.vy = 0;
-                bee.speed = 1.1 + Math.random() * 0.9;
+                bee.speed = bee.isCoffeeTrubec ? (0.8 + Math.random() * 0.4) : (1.1 + Math.random() * 0.9); // Trubec s kafem líně poletuje
                 bee.wobble = Math.random() * Math.PI * 2;
                 bee.wobbleSpeed = 0.03 + Math.random() * 0.03;
-                bee.size = 12 + Math.random() * 4;
+                bee.size = bee.isCoffeeTrubec ? 18 : (12 + Math.random() * 4); // O něco větší, aby šel poznat
                 bee.wingPhase = Math.random() * Math.PI * 2;
                 bee.angle = 0;
             }
 
+            // Vytvoření normálních včel
             for (let i = 0; i < BEE_COUNT; i++) {
-                const b = {};
+                const b = { isCoffeeTrubec: false };
                 spawnBee(b, true);
                 bees.push(b);
             }
+
+            // Přidání speciálního trubce s kafem jako poslední prvek
+            const coffeeTrubec = { isCoffeeTrubec: true };
+            spawnBee(coffeeTrubec, true);
+            bees.push(coffeeTrubec);
 
             function getPointerPos(e) {
                 const rect = canvas.getBoundingClientRect();
@@ -480,12 +481,16 @@
                 };
             }
 
+            let startPos = { x: 0, y: 0 };
+
             canvas.addEventListener('mousedown', function(e) {
                 const pos = getPointerPos(e);
+                startPos = pos;
                 for (let i = bees.length - 1; i >= 0; i--) {
                     const b = bees[i];
-                    if (Math.hypot(pos.x - b.x, pos.y - b.y) < 36) {
+                    if (Math.hypot(pos.x - b.x, pos.y - b.y) < 40) {
                         draggedBee = b;
+                        clickedBee = b; // Pro detekci pouhého kliknutí bez tažení
                         canvas.style.cursor = 'grabbing';
                         break;
                     }
@@ -495,12 +500,15 @@
             window.addEventListener('mousemove', function(e) {
                 const pos = getPointerPos(e);
                 if (draggedBee) {
+                    if (Math.hypot(pos.x - startPos.x, pos.y - startPos.y) > 5) {
+                        clickedBee = null; // Pokud se pohnul o víc než 5px, už to není kliknutí, ale tažení
+                    }
                     draggedBee.x = pos.x;
                     draggedBee.y = pos.y;
                 } else {
                     let hovering = false;
                     for (let i = 0; i < bees.length; i++) {
-                        if (Math.hypot(pos.x - bees[i].x, pos.y - bees[i].y) < 36) {
+                        if (Math.hypot(pos.x - bees[i].x, pos.y - bees[i].y) < 40) {
                             hovering = true;
                             break;
                         }
@@ -511,17 +519,24 @@
 
             window.addEventListener('mouseup', function() {
                 if (draggedBee) {
+                    // Pokud uživatel na trubce s kafem pouze kliknul (neodtáhnul ho pryč), spustí se easter egg!
+                    if (clickedBee && clickedBee.isCoffeeTrubec) {
+                        triggerEasterEgg();
+                    }
                     draggedBee = null;
+                    clickedBee = null;
                     canvas.style.cursor = 'grab';
                 }
             });
 
             canvas.addEventListener('touchstart', function(e) {
                 const pos = getPointerPos(e);
+                startPos = pos;
                 for (let i = bees.length - 1; i >= 0; i--) {
                     const b = bees[i];
-                    if (Math.hypot(pos.x - b.x, pos.y - b.y) < 44) {
+                    if (Math.hypot(pos.x - b.x, pos.y - b.y) < 45) {
                         draggedBee = b;
+                        clickedBee = b;
                         e.preventDefault();
                         break;
                     }
@@ -531,6 +546,9 @@
             window.addEventListener('touchmove', function(e) {
                 if (draggedBee) {
                     const pos = getPointerPos(e);
+                    if (Math.hypot(pos.x - startPos.x, pos.y - startPos.y) > 5) {
+                        clickedBee = null;
+                    }
                     draggedBee.x = pos.x;
                     draggedBee.y = pos.y;
                     e.preventDefault();
@@ -538,7 +556,11 @@
             }, { passive: false });
 
             window.addEventListener('touchend', function() {
+                if (draggedBee && clickedBee && clickedBee.isCoffeeTrubec) {
+                    triggerEasterEgg();
+                }
                 draggedBee = null;
+                clickedBee = null;
             });
 
             function drawHive() {
@@ -600,8 +622,9 @@
                 if (isDragged) ctx.scale(1.35, 1.35);
 
                 const s = b.size;
-                const wingSwing = Math.sin(b.wingPhase) * 0.45;
+                const wingSwing = Math.sin(b.wingPhase) * (b.isCoffeeTrubec ? 0.25 : 0.45); // Trubec s kafem mává křídly líněji
 
+                // Křídla
                 ctx.save();
                 ctx.fillStyle = 'rgba(243, 223, 209, 0.35)';
                 ctx.strokeStyle = 'rgba(226, 184, 158, 0.75)';
@@ -624,7 +647,8 @@
                 ctx.restore();
                 ctx.restore();
 
-                ctx.fillStyle = '#C88A6B';
+                // Tělo včely / trubce
+                ctx.fillStyle = b.isCoffeeTrubec ? '#A96B4C' : '#C88A6B'; // Trubec o něco tmavší
                 ctx.strokeStyle = '#F3DFD1';
                 ctx.lineWidth = 1.1;
                 ctx.beginPath();
@@ -632,6 +656,7 @@
                 ctx.fill();
                 ctx.stroke();
 
+                // Proužky
                 ctx.strokeStyle = '#120907';
                 ctx.lineWidth = 2.2;
                 ctx.beginPath();
@@ -641,10 +666,19 @@
                 ctx.lineTo(s * 0.1, s * 0.48);
                 ctx.stroke();
 
+                // Hlava
                 ctx.fillStyle = '#1C0E0B';
                 ctx.beginPath();
                 ctx.arc(s * 0.75, 0, s * 0.32, 0, Math.PI * 2);
                 ctx.fill();
+
+                // SPECIÁLNÍ DETAILY PRO TRUBCE S KAFEM (hrnek v "ruce" nebo nad hlavou)
+                if (b.isCoffeeTrubec) {
+                    ctx.font = '14px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('☕', -2, -s * 0.9); // Malý hrnek kávy nad trubcem
+                }
 
                 ctx.restore();
             }
@@ -665,20 +699,32 @@
                     }
 
                     b.wobble += b.wobbleSpeed;
-                    b.wingPhase += 0.35;
+                    b.wingPhase += b.isCoffeeTrubec ? 0.15 : 0.35; // Línější mávání křídly u trubce
 
-                    const dx = targetX - b.x;
-                    const dy = targetY - b.y;
+                    // Trubec s kafem spěchá mnohem méně do úlu, spíše si poletuje po svém
+                    let destX = targetX;
+                    let destY = targetY;
+                    if (b.isCoffeeTrubec) {
+                        destX = width * 0.35 + Math.sin(b.wobble * 0.5) * 100;
+                        destY = height * 0.4 + Math.cos(b.wobble * 0.3) * 80;
+                    }
+
+                    const dx = destX - b.x;
+                    const dy = destY - b.y;
                     const dist = Math.hypot(dx, dy);
 
-                    if (dist < 16) {
+                    if (!b.isCoffeeTrubec && dist < 16) {
                         spawnBee(b, false);
                         return;
+                    } else if (b.isCoffeeTrubec && dist < 30) {
+                        // Trubec s kafem občas změní směr, když moc "přiletí k cíli"
+                        b.x = width * 0.2 + Math.random() * (width * 0.5);
+                        b.y = height * 0.2 + Math.random() * (height * 0.5);
                     }
 
                     const baseAngle = Math.atan2(dy, dx);
                     const perpAngle = baseAngle + Math.PI / 2;
-                    const wave = Math.sin(b.wobble) * 0.75;
+                    const wave = Math.sin(b.wobble) * (b.isCoffeeTrubec ? 1.5 : 0.75);
 
                     b.vx = Math.cos(baseAngle) * b.speed + Math.cos(perpAngle) * wave;
                     b.vy = Math.sin(baseAngle) * b.speed + Math.sin(perpAngle) * wave;
