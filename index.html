@@ -46,7 +46,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-copper-400 selection:text-lid-950">
+<body class="font-sans antialiased selection:bg-copper-400 selection:text-lid-950 relative">
 
     <!-- 1. HERO SEKCE S INTERAKTIVNÍMI VČELAMI -->
     <header id="hero-header" class="relative w-full h-screen min-h-[650px] overflow-hidden flex flex-col justify-between bg-lid-950">
@@ -87,10 +87,18 @@
                 <a href="#kontakt" class="hover:text-copper-400 transition">Kontakt</a>
             </div>
 
-            <button type="button" onclick="toggleCart()" class="pointer-events-auto flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
-                <span>Košík</span>
-                <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
-            </button>
+            <div class="flex items-center gap-3 pointer-events-auto">
+                <!-- EASTER EGG: Unavený trubec s kafem -->
+                <button type="button" onclick="triggerEasterEgg()" class="text-xs bg-lid-900 hover:bg-lid-800 text-copper-300 px-3 py-2 border border-copper-400/30 transition flex items-center gap-1.5 cursor-pointer shadow-lg" title="Klikni na unaveného trubce...">
+                    <span>🐝☕</span>
+                    <span class="hidden sm:inline text-[10px] uppercase tracking-wider text-copper-400">Trubec offline</span>
+                </button>
+
+                <button type="button" onclick="toggleCart()" class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
+                    <span>Košík</span>
+                    <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
+                </button>
+            </div>
         </nav>
 
         <!-- STŘED: HLAVNÍ SLOGAN -->
@@ -391,6 +399,22 @@
             <button type="button" onclick="alert('Pokračování k výběru dopravy a platby připravujeme.')" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
                 Pokračovat k dopravě a platbě
             </button>
+        </div>
+    </div>
+
+    <!-- MODAL OKNO PRO EASTER EGG -->
+    <div id="easterEggModal" class="fixed inset-0 bg-lid-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-lid-900 border border-copper-400/50 max-w-md w-full p-6 md:p-8 shadow-2xl relative space-y-4 text-center">
+            <span class="text-3xl">🐝☕</span>
+            <h3 class="font-serif text-2xl text-copper-200">Úspěšně vyrušen trubec</h3>
+            <p class="text-xs text-copper-200/80 leading-relaxed">
+                Právě jsi vzbudil trubce, který měl v plánu celou zimu jen pít kávu a nic nedělat. Za trest (nebo odměnu za pozornost) ti dáváme tajnou slevu <strong class="text-copper-400">5 %</strong> na dárkové balení.
+            </p>
+            <div class="bg-lid-950 border border-copper-400/30 py-3 font-mono text-sm tracking-widest text-copper-300 font-bold select-all">
+                TRUBEC5
+            </div>
+            <p class="text-[10px] text-copper-400/70">Stačí kód uplatnit v poptávce nebo na stánku.</p>
+            <button type="button" onclick="closeEasterEgg()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-widest py-3 transition mt-2 cursor-pointer">Pokračovat v prohlížení</button>
         </div>
     </div>
 
@@ -753,6 +777,25 @@
                 drawer.classList.toggle('translate-x-full');
             }
         }
+
+        // --- SKRIPTY PRO EASTER EGG ---
+        function triggerEasterEgg() {
+            const modal = document.getElementById('easterEggModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEasterEgg() {
+            const modal = document.getElementById('easterEggModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        document.getElementById('easterEggModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEasterEgg();
+            }
+        });
     </script>
 </body>
 </html>
