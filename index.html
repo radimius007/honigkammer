@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honigkammer | U trubců — Včelky pracují, my prodáváme</title>
+    <title>U trubců | Poctivý med, svíčky a dárková balení</title>
+    <meta name="description" content="Včelky pracují, my prodáváme. Poctivý med, svíčky ze 100% včelího vosku a ručně balené dárkové sady.">
+    
+    <!-- OpenGraph pro sdílení na sítích a v komunikátorech -->
+    <meta property="og:title" content="U trubců — Včelky pracují, my prodáváme">
+    <meta property="og:description" content="Řemeslný med, svíčky ze včelího vosku a dárková balení bez zbytečné vaty.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/svicky-prirodni.jpg">
+    
+    <!-- Vestavěný SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231C0E0B'/%3E%3Ccircle cx='16' cy='9' r='2' fill='%23C88A6B'/%3E%3Cellipse cx='16' cy='20' rx='4.5' ry='6.5' fill='none' stroke='%23C88A6B' stroke-width='2'/%3E%3Cpath d='M12 18h8M12 21h8' stroke='%23C88A6B' stroke-width='1.8'/%3E%3C/svg%3E">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +59,11 @@
 </head>
 <body class="font-sans antialiased selection:bg-copper-400 selection:text-lid-950 relative">
 
+    <!-- NOTIFIKAČNÍ LIŠTA (TOAST PRO LIMITY A INFO) -->
+    <div id="toast-notification" class="fixed top-6 left-1/2 -translate-x-1/2 z-[60] bg-lid-900 border border-copper-400 px-6 py-3.5 shadow-2xl transition-all duration-300 opacity-0 pointer-events-none -translate-y-4 text-xs font-semibold tracking-wider text-copper-200 text-center max-w-sm w-[90%]">
+        <span id="toast-message"></span>
+    </div>
+
     <!-- 1. HERO SEKCE S INTERAKTIVNÍMI VČELAMI -->
     <header id="hero-header" class="relative w-full h-screen min-h-[650px] overflow-hidden flex flex-col justify-between bg-lid-950">
         
@@ -88,7 +104,7 @@
             </div>
 
             <div class="flex items-center gap-3 pointer-events-auto">
-                <button type="button" onclick="toggleCart()" class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm">
+                <button type="button" onclick="toggleCart()" class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-copper-200 hover:text-copper-400 transition border border-copper-400/40 px-4 py-2.5 bg-lid-900/60 backdrop-blur-sm cursor-pointer">
                     <span>Košík</span>
                     <span id="cart-count" class="bg-copper-400 text-lid-950 px-1.5 py-0.5 text-[10px] font-extrabold rounded-sm">0</span>
                 </button>
@@ -131,19 +147,22 @@
             <!-- Vlajkový produkt: Dárková balení -->
             <div class="bg-lid-950 border border-copper-400/30 p-8 md:p-12 mb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-2xl">
                 <div class="lg:col-span-6 aspect-[16/10] bg-lid-900 border border-copper-400/20 overflow-hidden relative">
-                    <img src="img/svicky-prirodni.jpg" alt="Dárková balení Honigkammer" class="w-full h-full object-cover">
+                    <img src="img/svicky-prirodni.jpg" alt="Dárková balení U trubců" class="w-full h-full object-cover">
                 </div>
                 <div class="lg:col-span-6 space-y-6">
-                    <h3 class="font-serif text-3xl md:text-4xl text-copper-200">Dárková balení</h3>
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-serif text-3xl md:text-4xl text-copper-200">Dárková balení</h3>
+                        <span class="text-[10px] uppercase tracking-[0.18em] text-copper-400 border border-copper-400/30 px-2.5 py-1">Limit 60 ks</span>
+                    </div>
                     <p class="text-xs md:text-sm text-copper-200/80 leading-relaxed">
-                        Všechna dárková balení obsahují produkty včelího snažení, každé je ale unikátní, ručně připraveno (zatím člověkem, školení zaměstnankyň proběhne až si odpočinou)
+                        Všechna dárková balení obsahují produkty včelího snažení, každé je ale unikátní, ručně připraveno (zatím člověkem, školení zaměstnankyň proběhne až si odpočinou). Součástí je i hrací karta s QR kódem.
                     </p>
                     <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                         <div>
                             <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Cena za kus</span>
                             <span class="font-serif text-3xl text-copper-300 font-bold">490 Kč</span>
                         </div>
-                        <button type="button" onclick="addToCart('Dárková balení', '490 Kč')" class="bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] px-7 py-3.5 transition">
+                        <button type="button" onclick="addToCart('gift_b2c', 1)" class="bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] px-7 py-3.5 transition cursor-pointer">
                             Přidat do košíku
                         </button>
                     </div>
@@ -152,8 +171,9 @@
 
             <!-- KATEGORIE 1: MED -->
             <div class="mb-16">
-                <div class="border-b border-copper-400/20 pb-4 mb-8">
+                <div class="border-b border-copper-400/20 pb-4 mb-8 flex items-baseline justify-between">
                     <h3 class="font-serif text-3xl text-copper-200">Med</h3>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-copper-400/70">Max. 10 ks na objednávku</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-lid-950 border border-copper-400/20 p-7 flex flex-col justify-between hover:border-copper-400/50 transition">
@@ -165,7 +185,7 @@
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">240 Kč</span>
-                            <button type="button" onclick="addToCart('Květový med', '240 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                            <button type="button" onclick="addToCart('med_kvetovy', 1)" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200 cursor-pointer">
                                 Přidat do košíku
                             </button>
                         </div>
@@ -180,7 +200,7 @@
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">280 Kč</span>
-                            <button type="button" onclick="addToCart('Lesní med', '280 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                            <button type="button" onclick="addToCart('med_lesni', 1)" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200 cursor-pointer">
                                 Přidat do košíku
                             </button>
                         </div>
@@ -190,8 +210,9 @@
 
             <!-- KATEGORIE 2: SVÍČKY -->
             <div>
-                <div class="border-b border-copper-400/20 pb-4 mb-8">
+                <div class="border-b border-copper-400/20 pb-4 mb-8 flex items-baseline justify-between">
                     <h3 class="font-serif text-3xl text-copper-200">Svíčky</h3>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-copper-400/70">Max. 10 ks na objednávku</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-lid-950 border border-copper-400/20 p-7 flex flex-col justify-between hover:border-copper-400/50 transition">
@@ -204,7 +225,7 @@
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">190 Kč</span>
-                            <button type="button" onclick="addToCart('Vrstvená svíčka z vosku', '190 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                            <button type="button" onclick="addToCart('svicka_vrstvena', 1)" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200 cursor-pointer">
                                 Přidat do košíku
                             </button>
                         </div>
@@ -220,7 +241,7 @@
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-copper-400/15">
                             <span class="font-serif text-2xl text-copper-300">210 Kč</span>
-                            <button type="button" onclick="addToCart('Odlévaná svíčka', '210 Kč')" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200">
+                            <button type="button" onclick="addToCart('svicka_odlevana', 1)" class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200 cursor-pointer">
                                 Přidat do košíku
                             </button>
                         </div>
@@ -248,7 +269,7 @@
                 <div class="bg-lid-950/90 border border-copper-400/30 p-6 md:p-8 space-y-4 text-xs mb-8 shadow-xl">
                     <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
                         <span class="uppercase tracking-[0.15em] text-copper-300/70">Sortiment stánku:</span>
-                        <span class="text-copper-200 font-semibold text-right">Dárková balení, medy, svíčky z vosku, autorské figurky</span>
+                        <span class="text-copper-200 font-semibold text-right">Dárková balení, medy, svíčky z vosku</span>
                     </div>
                     <div class="flex justify-between gap-4 py-2 border-b border-copper-400/15">
                         <span class="uppercase tracking-[0.15em] text-copper-300/70">Prodejní plocha:</span>
@@ -295,9 +316,12 @@
                     </div>
                 </div>
 
-                <!-- Kalkulačka dárkových balení v B2B -->
+                <!-- Kalkulačka dárkových balení v B2B (Max 60 ks) -->
                 <div class="bg-lid-900 border border-copper-400/30 p-6 md:p-8 shadow-2xl">
-                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400 block mb-2">Kalkulačka dárkových balení</span>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-copper-400">Kalkulačka dárkových balení</span>
+                        <span class="text-[10px] uppercase tracking-[0.15em] text-copper-300/60">Skladový limit: 60 ks</span>
+                    </div>
                     <div class="flex justify-between items-end mb-4">
                         <div>
                             <span class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/70">Počet balení</span>
@@ -310,7 +334,7 @@
                         </div>
                     </div>
 
-                    <input id="gift-slider" type="range" min="1" max="120" step="1" value="10" oninput="updateGiftCalc()" class="w-full accent-copper-400 cursor-pointer mb-4">
+                    <input id="gift-slider" type="range" min="1" max="60" step="1" value="10" oninput="updateGiftCalc()" class="w-full accent-copper-400 cursor-pointer mb-4">
 
                     <div class="grid grid-cols-4 gap-1.5 text-center text-[10px] mb-4">
                         <div id="gtier-1" class="p-1.5 border border-copper-400/15 text-copper-300/60">
@@ -326,20 +350,20 @@
                             <span>460 Kč</span>
                         </div>
                         <div id="gtier-4" class="p-1.5 border border-copper-400/15 text-copper-300/60">
-                            <span class="block font-bold">60+ ks</span>
+                            <span class="block font-bold">60 ks</span>
                             <span>445 Kč</span>
                         </div>
                     </div>
 
                     <div class="flex items-center justify-between pt-4 border-t border-copper-400/15 mb-6">
                         <div>
-                            <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Celkem (uvedeno bez DPH)</span>
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-copper-300/60 block">Celkem (nejsem plátce DPH)</span>
                             <span id="gift-total-label" class="font-serif text-2xl text-copper-200 font-bold">4 750 Kč</span>
                         </div>
                     </div>
 
-                    <button type="button" onclick="addGiftToCart()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-3.5 transition">
-                        Poptat
+                    <button type="button" onclick="addGiftB2BToCart()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-3.5 transition cursor-pointer">
+                        Přidat do poptávky / košíku
                     </button>
                 </div>
             </div>
@@ -378,21 +402,90 @@
         </div>
     </footer>
 
-    <!-- POSTRANNÍ KOŠÍK -->
-    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-lid-900 border-l border-copper-400/30 p-8 translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
+    <!-- POSTRANNÍ KOŠÍK A OBJEDNÁVKOVÝ FORMULÁŘ -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-lid-900 border-l border-copper-400/30 p-6 md:p-8 translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl overflow-y-auto">
         <div>
-            <div class="flex items-center justify-between pb-6 border-b border-copper-400/20">
-                <h3 class="font-serif text-2xl text-copper-200">Košík</h3>
-                <button type="button" onclick="toggleCart()" class="text-xs uppercase tracking-[0.2em] text-copper-400">Zavřít ✕</button>
+            <div class="flex items-center justify-between pb-5 border-b border-copper-400/20">
+                <h3 class="font-serif text-2xl text-copper-200">Košík & Poptávka</h3>
+                <button type="button" onclick="toggleCart()" class="text-xs uppercase tracking-[0.2em] text-copper-400 hover:text-copper-200 cursor-pointer">Zavřít ✕</button>
             </div>
-            <div id="cart-items" class="py-6 space-y-4 text-sm">
+
+            <!-- Položky košíku -->
+            <div id="cart-items" class="py-5 space-y-4 text-sm">
                 <p class="text-copper-300/60 text-xs">Váš košík je zatím prázdný.</p>
             </div>
-        </div>
-        <div class="pt-6 border-t border-copper-400/20">
-            <button type="button" onclick="alert('Pokračování k výběru dopravy a platby připravujeme.')" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-[0.2em] py-4 transition">
-                Pokračovat k dopravě a platbě
-            </button>
+
+            <!-- Slevový kód a souhrn (zobrazí se, když je něco v košíku) -->
+            <div id="cart-summary-section" class="hidden border-t border-copper-400/20 pt-4 space-y-4">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/70 mb-1.5">Slevový kód</label>
+                    <div class="flex gap-2">
+                        <input id="promo-input" type="text" placeholder="Máte kód od trubce?" class="bg-lid-950 border border-copper-400/30 px-3 py-2 text-xs text-copper-200 uppercase tracking-widest flex-1 focus:outline-none focus:border-copper-400">
+                        <button type="button" onclick="applyPromoCode()" class="bg-lid-800 hover:bg-lid-700 border border-copper-400/40 text-copper-200 text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 transition cursor-pointer">
+                            Použít
+                        </button>
+                    </div>
+                    <p id="promo-feedback" class="text-[11px] mt-1.5 hidden"></p>
+                </div>
+
+                <div class="bg-lid-950 border border-copper-400/25 p-4 space-y-1.5 text-xs">
+                    <div class="flex justify-between text-copper-300/80">
+                        <span>Mezisoučet:</span>
+                        <span id="cart-subtotal">0 Kč</span>
+                    </div>
+                    <div id="cart-discount-row" class="flex justify-between text-copper-400 hidden">
+                        <span>Sleva (TRUBEC5 – 5 % na dárky):</span>
+                        <span id="cart-discount">-0 Kč</span>
+                    </div>
+                    <div class="flex justify-between text-base font-serif font-bold text-copper-200 pt-2 border-t border-copper-400/15">
+                        <span>Celkem:</span>
+                        <span id="cart-total">0 Kč</span>
+                    </div>
+                </div>
+
+                <!-- Formulář pro dokončení objednávky -->
+                <form id="checkout-form" onsubmit="submitOrder(event)" class="space-y-3 pt-2">
+                    <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-copper-400">Kam mají včelky doručit radost?</span>
+                    
+                    <div>
+                        <input type="text" id="cust-name" required placeholder="Jméno a příjmení / Firma *" class="w-full bg-lid-950 border border-copper-400/30 px-3.5 py-2.5 text-xs text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <input type="email" id="cust-email" required placeholder="E-mail *" class="w-full bg-lid-950 border border-copper-400/30 px-3.5 py-2.5 text-xs text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
+                        <input type="tel" id="cust-phone" required placeholder="Telefon *" class="w-full bg-lid-950 border border-copper-400/30 px-3.5 py-2.5 text-xs text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400">
+                    </div>
+                    <div>
+                        <select id="cust-delivery" class="w-full bg-lid-950 border border-copper-400/30 px-3.5 py-2.5 text-xs text-copper-200 focus:outline-none focus:border-copper-400">
+                            <option value="Osobní předání v Praze (zdarma)">Osobní předání v Praze (zdarma)</option>
+                            <option value="Zásilkovna - výdejní místo (+89 Kč)">Zásilkovna – výdejní místo (+89 Kč)</option>
+                            <option value="Firemní B2B doprava (dle dohody)">Firemní B2B doprava (dle dohody)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <textarea id="cust-note" rows="2" placeholder="Poznámka (např. pobočka Zásilkovny, IČO pro fakturu nebo přání k balení)" class="w-full bg-lid-950 border border-copper-400/30 px-3.5 py-2 text-xs text-copper-200 placeholder-copper-300/40 focus:outline-none focus:border-copper-400"></textarea>
+                    </div>
+
+                    <p class="text-[10px] text-copper-300/60 leading-relaxed">
+                        Odesláním nezávazné objednávky souhlasíte se zpracováním kontaktních údajů za účelem vyřízení a potvrzení dostupnosti. Platba probíhá převodem / QR kódem po potvrzení nebo při převzetí.
+                    </p>
+
+                    <button type="submit" id="submit-order-btn" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-extrabold text-xs uppercase tracking-[0.2em] py-4 transition cursor-pointer shadow-lg">
+                        Odeslat objednávku
+                    </button>
+                </form>
+            </div>
+
+            <!-- Potvrzení po odeslání -->
+            <div id="order-success-box" class="hidden py-8 text-center space-y-4">
+                <div class="text-3xl">🐝📦</div>
+                <h4 class="font-serif text-2xl text-copper-200">Objednávka přijata!</h4>
+                <p class="text-xs text-copper-200/80 leading-relaxed">
+                    Děkujeme! Včelky už o Vás vědí. Ozveme se Vám co nejdříve na e-mail s potvrzením a platebním QR kódem.
+                </p>
+                <button type="button" onclick="resetOrderSuccess()" class="bg-lid-800 border border-copper-400/40 text-copper-200 text-xs uppercase tracking-widest px-6 py-2.5 mt-2 cursor-pointer">
+                    Zavřít
+                </button>
+            </div>
         </div>
     </div>
 
@@ -400,15 +493,22 @@
     <div id="easterEggModal" class="fixed inset-0 bg-lid-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
         <div class="bg-lid-900 border border-copper-400/50 max-w-md w-full p-6 md:p-8 shadow-2xl relative space-y-4 text-center">
             <span class="text-3xl">🐝☕</span>
-            <h3 class="font-serif text-2xl text-copper-200"> Vida!</h3>
+            <h3 class="font-serif text-2xl text-copper-200">Úspěšně vyrušen trubec</h3>
             <p class="text-xs text-copper-200/80 leading-relaxed">
-                Dopadli jste trubce, který měl v plánu celou sezonu jen pít kávu a nic nedělat. Jako pozornost (a aby se nic nedoneslo královně) Vám dává slevu <strong class="text-copper-400">5 %</strong>.
+                Právě jsi chytil za letu trubce, který měl v plánu celou zimu jen pít kávu a nic nedělat. Za odměnu za tvoji pozornost ti dáváme tajnou slevu <strong class="text-copper-400">5 %</strong> na dárkové balení.
             </p>
             <div class="bg-lid-950 border border-copper-400/30 py-3 font-mono text-sm tracking-widest text-copper-300 font-bold select-all">
                 TRUBEC5
             </div>
-            <p class="text-[10px] text-copper-400/70">Kód uplatníte při odbavení objednávky.</p>
-            <button type="button" onclick="closeEasterEgg()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-widest py-3 transition mt-2 cursor-pointer">Pokračovat v prohlížení</button>
+            <p class="text-[10px] text-copper-400/70">Kód můžeš rovnou aktivovat tlačítkem níže nebo ho zmínit na stánku.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                <button type="button" onclick="activateEasterEggCode()" class="w-full bg-copper-400 hover:bg-copper-300 text-lid-950 font-bold text-xs uppercase tracking-widest py-3 transition cursor-pointer">
+                    Aktivovat slevu 5 %
+                </button>
+                <button type="button" onclick="closeEasterEgg()" class="w-full bg-lid-800 hover:bg-lid-700 text-copper-200 font-bold text-xs uppercase tracking-widest py-3 border border-copper-400/30 transition cursor-pointer">
+                    Pokračovat
+                </button>
+            </div>
         </div>
     </div>
 
@@ -421,7 +521,7 @@
             let height = 0;
             let hive = { x: 0, y: 0 };
             const bees = [];
-            const BEE_COUNT = 13; // 13 normálních včel + 1 trubec s kafem
+            const BEE_COUNT = 13;
             let draggedBee = null;
             let clickedBee = null;
 
@@ -451,22 +551,20 @@
                 }
                 bee.vx = 0;
                 bee.vy = 0;
-                bee.speed = bee.isCoffeeTrubec ? (0.8 + Math.random() * 0.4) : (1.1 + Math.random() * 0.9); // Trubec s kafem líně poletuje
+                bee.speed = bee.isCoffeeTrubec ? (0.8 + Math.random() * 0.4) : (1.1 + Math.random() * 0.9);
                 bee.wobble = Math.random() * Math.PI * 2;
                 bee.wobbleSpeed = 0.03 + Math.random() * 0.03;
-                bee.size = bee.isCoffeeTrubec ? 18 : (12 + Math.random() * 4); // O něco větší, aby šel poznat
+                bee.size = bee.isCoffeeTrubec ? 18 : (12 + Math.random() * 4);
                 bee.wingPhase = Math.random() * Math.PI * 2;
                 bee.angle = 0;
             }
 
-            // Vytvoření normálních včel
             for (let i = 0; i < BEE_COUNT; i++) {
                 const b = { isCoffeeTrubec: false };
                 spawnBee(b, true);
                 bees.push(b);
             }
 
-            // Přidání speciálního trubce s kafem jako poslední prvek
             const coffeeTrubec = { isCoffeeTrubec: true };
             spawnBee(coffeeTrubec, true);
             bees.push(coffeeTrubec);
@@ -490,7 +588,7 @@
                     const b = bees[i];
                     if (Math.hypot(pos.x - b.x, pos.y - b.y) < 40) {
                         draggedBee = b;
-                        clickedBee = b; // Pro detekci pouhého kliknutí bez tažení
+                        clickedBee = b;
                         canvas.style.cursor = 'grabbing';
                         break;
                     }
@@ -501,7 +599,7 @@
                 const pos = getPointerPos(e);
                 if (draggedBee) {
                     if (Math.hypot(pos.x - startPos.x, pos.y - startPos.y) > 5) {
-                        clickedBee = null; // Pokud se pohnul o víc než 5px, už to není kliknutí, ale tažení
+                        clickedBee = null;
                     }
                     draggedBee.x = pos.x;
                     draggedBee.y = pos.y;
@@ -519,7 +617,6 @@
 
             window.addEventListener('mouseup', function() {
                 if (draggedBee) {
-                    // Pokud uživatel na trubce s kafem pouze kliknul (neodtáhnul ho pryč), spustí se easter egg!
                     if (clickedBee && clickedBee.isCoffeeTrubec) {
                         triggerEasterEgg();
                     }
@@ -622,9 +719,8 @@
                 if (isDragged) ctx.scale(1.35, 1.35);
 
                 const s = b.size;
-                const wingSwing = Math.sin(b.wingPhase) * (b.isCoffeeTrubec ? 0.25 : 0.45); // Trubec s kafem mává křídly líněji
+                const wingSwing = Math.sin(b.wingPhase) * (b.isCoffeeTrubec ? 0.25 : 0.45);
 
-                // Křídla
                 ctx.save();
                 ctx.fillStyle = 'rgba(243, 223, 209, 0.35)';
                 ctx.strokeStyle = 'rgba(226, 184, 158, 0.75)';
@@ -647,8 +743,7 @@
                 ctx.restore();
                 ctx.restore();
 
-                // Tělo včely / trubce
-                ctx.fillStyle = b.isCoffeeTrubec ? '#A96B4C' : '#C88A6B'; // Trubec o něco tmavší
+                ctx.fillStyle = b.isCoffeeTrubec ? '#A96B4C' : '#C88A6B';
                 ctx.strokeStyle = '#F3DFD1';
                 ctx.lineWidth = 1.1;
                 ctx.beginPath();
@@ -656,7 +751,6 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // Proužky
                 ctx.strokeStyle = '#120907';
                 ctx.lineWidth = 2.2;
                 ctx.beginPath();
@@ -666,18 +760,16 @@
                 ctx.lineTo(s * 0.1, s * 0.48);
                 ctx.stroke();
 
-                // Hlava
                 ctx.fillStyle = '#1C0E0B';
                 ctx.beginPath();
                 ctx.arc(s * 0.75, 0, s * 0.32, 0, Math.PI * 2);
                 ctx.fill();
 
-                // SPECIÁLNÍ DETAILY PRO TRUBCE S KAFEM (hrnek v "ruce" nebo nad hlavou)
                 if (b.isCoffeeTrubec) {
                     ctx.font = '14px sans-serif';
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
-                    ctx.fillText('☕', -2, -s * 0.9); // Malý hrnek kávy nad trubcem
+                    ctx.fillText('☕', -2, -s * 0.9);
                 }
 
                 ctx.restore();
@@ -699,9 +791,8 @@
                     }
 
                     b.wobble += b.wobbleSpeed;
-                    b.wingPhase += b.isCoffeeTrubec ? 0.15 : 0.35; // Línější mávání křídly u trubce
+                    b.wingPhase += b.isCoffeeTrubec ? 0.15 : 0.35;
 
-                    // Trubec s kafem spěchá mnohem méně do úlu, spíše si poletuje po svém
                     let destX = targetX;
                     let destY = targetY;
                     if (b.isCoffeeTrubec) {
@@ -717,7 +808,6 @@
                         spawnBee(b, false);
                         return;
                     } else if (b.isCoffeeTrubec && dist < 30) {
-                        // Trubec s kafem občas změní směr, když moc "přiletí k cíli"
                         b.x = width * 0.2 + Math.random() * (width * 0.5);
                         b.y = height * 0.2 + Math.random() * (height * 0.5);
                     }
@@ -741,22 +831,132 @@
             animate();
         })();
 
-        // --- SKRIPT PRO KALKULAČKU ---
+        // --- KATALOG PRODUKTŮ A STROPY ZÁSOB ---
+        // Limity: Medy max 10 ks (souhrnně na kategorii med), Svíčky max 10 ks (souhrnně na kategorii svíčky), Dárková balení max 60 ks
+        const PRODUCTS = {
+            gift_b2c: { id: 'gift_b2c', name: 'Dárkové balení', unitPrice: 490, category: 'gift' },
+            med_kvetovy: { id: 'med_kvetovy', name: 'Květový med', unitPrice: 240, category: 'honey' },
+            med_lesni: { id: 'med_lesni', name: 'Lesní med', unitPrice: 280, category: 'honey' },
+            svicka_vrstvena: { id: 'svicka_vrstvena', name: 'Vrstvená svíčka z vosku', unitPrice: 190, category: 'candle' },
+            svicka_odlevana: { id: 'svicka_odlevana', name: 'Odlévaná svíčka', unitPrice: 210, category: 'candle' }
+        };
+
+        const CATEGORY_LIMITS = {
+            honey: { max: 10, label: 'medů (max. 10 ks na objednávku)' },
+            candle: { max: 10, label: 'svíček (max. 10 ks na objednávku)' },
+            gift: { max: 60, label: 'dárkových balení (max. 60 ks na objednávku)' }
+        };
+
+        const cart = [];
+        let promoActive = false;
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(function() {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 3400);
+        }
+
+        function getCategoryQty(category) {
+            return cart.reduce(function(sum, item) {
+                return item.category === category ? sum + item.qty : sum;
+            }, 0);
+        }
+
+        function getGiftUnitPrice(totalGiftQty) {
+            if (totalGiftQty >= 60) return 445;
+            if (totalGiftQty >= 30) return 460;
+            if (totalGiftQty >= 10) return 475;
+            return 490;
+        }
+
+        function syncGiftPricingInCart() {
+            const totalGifts = getCategoryQty('gift');
+            const tierPrice = getGiftUnitPrice(totalGifts);
+            cart.forEach(function(item) {
+                if (item.category === 'gift') {
+                    item.unitPrice = tierPrice;
+                }
+            });
+        }
+
+        function addToCart(productId, addQty) {
+            const prod = PRODUCTS[productId];
+            if (!prod) return;
+
+            const currentCatQty = getCategoryQty(prod.category);
+            const limitObj = CATEGORY_LIMITS[prod.category];
+
+            if (currentCatQty >= limitObj.max) {
+                showToast('Dosáhli jste limitu ' + limitObj.label + ', abychom nevyčerpali zásoby úlu.');
+                toggleCart(true);
+                return;
+            }
+
+            let allowedAdd = addQty;
+            if (currentCatQty + addQty > limitObj.max) {
+                allowedAdd = limitObj.max - currentCatQty;
+                showToast('Přidáno jen ' + allowedAdd + ' ks – dosáhli jste maxima ' + limitObj.label + '.');
+            }
+
+            const existing = cart.find(function(i) { return i.id === prod.id; });
+            if (existing) {
+                existing.qty += allowedAdd;
+            } else {
+                cart.push({
+                    id: prod.id,
+                    name: prod.name,
+                    unitPrice: prod.unitPrice,
+                    category: prod.category,
+                    qty: allowedAdd
+                });
+            }
+
+            syncGiftPricingInCart();
+            renderCart();
+            toggleCart(true);
+        }
+
+        function addGiftB2BToCart() {
+            const qty = parseInt(document.getElementById('gift-slider').value, 10);
+            addToCart('gift_b2c', qty);
+        }
+
+        function changeItemQty(idx, delta) {
+            const item = cart[idx];
+            if (!item) return;
+
+            if (delta > 0) {
+                const currentCatQty = getCategoryQty(item.category);
+                const limitObj = CATEGORY_LIMITS[item.category];
+                if (currentCatQty + delta > limitObj.max) {
+                    showToast('Více kusů nelze přidat – limit je ' + limitObj.label + '.');
+                    return;
+                }
+            }
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            syncGiftPricingInCart();
+            renderCart();
+        }
+
+        // --- SKRIPT PRO B2B KALKULAČKU ---
         function updateGiftCalc() {
             const qty = parseInt(document.getElementById('gift-slider').value, 10);
-            let unitPrice = 490;
+            const unitPrice = getGiftUnitPrice(qty);
             let activeTier = 1;
 
-            if (qty >= 10 && qty < 30) {
-                unitPrice = 475;
-                activeTier = 2;
-            } else if (qty >= 30 && qty < 60) {
-                unitPrice = 460;
-                activeTier = 3;
-            } else if (qty >= 60) {
-                unitPrice = 445;
-                activeTier = 4;
-            }
+            if (qty >= 10 && qty < 30) activeTier = 2;
+            else if (qty >= 30 && qty < 60) activeTier = 3;
+            else if (qty >= 60) activeTier = 4;
 
             const total = qty * unitPrice;
 
@@ -774,45 +974,93 @@
             }
         }
 
-        const cart = [];
+        function applyPromoCode() {
+            const input = document.getElementById('promo-input');
+            const feedback = document.getElementById('promo-feedback');
+            const code = input.value.trim().toUpperCase();
 
-        function addToCart(name, price) {
-            cart.push({ name: name, price: price });
+            feedback.classList.remove('hidden');
+            if (code === 'TRUBEC5') {
+                promoActive = true;
+                feedback.textContent = '✓ Kód TRUBEC5 aktivován (5% sleva na dárková balení).';
+                feedback.className = 'text-[11px] mt-1.5 text-copper-400 font-semibold';
+            } else {
+                promoActive = false;
+                feedback.textContent = '✕ Neplatný kód. Zkuste chytit trubce s kafem na hlavní obrazovce.';
+                feedback.className = 'text-[11px] mt-1.5 text-red-400';
+            }
             renderCart();
-            toggleCart(true);
         }
 
-        function addGiftToCart() {
-            const qty = document.getElementById('gift-slider').value;
-            const unitText = document.getElementById('gift-unit-label').textContent;
-            const totalText = document.getElementById('gift-total-label').textContent;
-            cart.push({
-                name: 'Firemní dárková balení (' + qty + ' ks × ' + unitText + ')',
-                price: totalText
-            });
-            renderCart();
-            toggleCart(true);
+        function activateEasterEggCode() {
+            promoActive = true;
+            const input = document.getElementById('promo-input');
+            const feedback = document.getElementById('promo-feedback');
+            input.value = 'TRUBEC5';
+            feedback.textContent = '✓ Kód TRUBEC5 aktivován (5% sleva na dárková balení).';
+            feedback.className = 'text-[11px] mt-1.5 text-copper-400 font-semibold';
+            closeEasterEgg();
+            if (cart.length === 0) {
+                addToCart('gift_b2c', 1);
+            } else {
+                renderCart();
+                toggleCart(true);
+            }
+            showToast('Sleva 5 % na dárková balení (TRUBEC5) byla aktivována!');
         }
 
         function renderCart() {
-            document.getElementById('cart-count').textContent = cart.length;
+            const totalItemsCount = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+            document.getElementById('cart-count').textContent = totalItemsCount;
+
             const container = document.getElementById('cart-items');
+            const summarySection = document.getElementById('cart-summary-section');
+            const successBox = document.getElementById('order-success-box');
+
+            successBox.classList.add('hidden');
+
             if (cart.length === 0) {
                 container.innerHTML = '<p class="text-copper-300/60 text-xs">Váš košík je zatím prázdný.</p>';
+                summarySection.classList.add('hidden');
                 return;
             }
-            container.innerHTML = cart.map(function(item, idx) {
-                return '<div class="flex justify-between items-center border-b border-copper-400/15 pb-2 gap-2">' +
-                    '<div><span class="text-copper-200 block">' + item.name + '</span>' +
-                    '<span class="text-copper-400 text-xs">' + item.price + '</span></div>' +
-                    '<button type="button" onclick="removeFromCart(' + idx + ')" class="text-xs text-copper-400 hover:text-copper-200 shrink-0">Odebrat</button>' +
-                    '</div>';
-            }).join('');
-        }
 
-        function removeFromCart(idx) {
-            cart.splice(idx, 1);
-            renderCart();
+            summarySection.classList.remove('hidden');
+
+            let subtotal = 0;
+            let giftSubtotal = 0;
+
+            container.innerHTML = cart.map(function(item, idx) {
+                const lineTotal = item.qty * item.unitPrice;
+                subtotal += lineTotal;
+                if (item.category === 'gift') {
+                    giftSubtotal += lineTotal;
+                }
+                return '<div class="flex justify-between items-center border-b border-copper-400/15 pb-3 gap-2">' +
+                    '<div>' +
+                        '<span class="text-copper-200 font-medium block">' + item.name + '</span>' +
+                        '<span class="text-copper-400 text-xs">' + item.unitPrice + ' Kč / ks — celkem ' + lineTotal.toLocaleString('cs-CZ') + ' Kč</span>' +
+                    '</div>' +
+                    '<div class="flex items-center gap-2 shrink-0">' +
+                        '<button type="button" onclick="changeItemQty(' + idx + ', -1)" class="w-6 h-6 bg-lid-950 border border-copper-400/30 text-copper-200 text-xs flex items-center justify-center hover:border-copper-400 cursor-pointer">−</button>' +
+                        '<span class="text-xs font-bold w-6 text-center">' + item.qty + '</span>' +
+                        '<button type="button" onclick="changeItemQty(' + idx + ', 1)" class="w-6 h-6 bg-lid-950 border border-copper-400/30 text-copper-200 text-xs flex items-center justify-center hover:border-copper-400 cursor-pointer">+</button>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            const discount = promoActive ? Math.round(giftSubtotal * 0.05) : 0;
+            const finalTotal = subtotal - discount;
+
+            document.getElementById('cart-subtotal').textContent = subtotal.toLocaleString('cs-CZ') + ' Kč';
+            const discountRow = document.getElementById('cart-discount-row');
+            if (promoActive && discount > 0) {
+                discountRow.classList.remove('hidden');
+                document.getElementById('cart-discount').textContent = '−' + discount.toLocaleString('cs-CZ') + ' Kč';
+            } else {
+                discountRow.classList.add('hidden');
+            }
+            document.getElementById('cart-total').textContent = finalTotal.toLocaleString('cs-CZ') + ' Kč';
         }
 
         function toggleCart(forceOpen) {
@@ -822,6 +1070,89 @@
             } else {
                 drawer.classList.toggle('translate-x-full');
             }
+        }
+
+        // --- ODESLÁNÍ OBJEDNÁVKY ---
+        // Poznámka: Pro přímé zasílání na e-mail bez otevírání e-mailového klienta vlož do konstanty WEB3FORMS_ACCESS_KEY klíč z https://web3forms.com (zdarma na 1 kliknutí na radimsemerad@gmail.com)
+        const WEB3FORMS_ACCESS_KEY = '';
+
+        async function submitOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) return;
+
+            const name = document.getElementById('cust-name').value.trim();
+            const email = document.getElementById('cust-email').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const delivery = document.getElementById('cust-delivery').value;
+            const note = document.getElementById('cust-note').value.trim();
+            const totalText = document.getElementById('cart-total').textContent;
+
+            const itemsSummary = cart.map(function(i) {
+                return '- ' + i.name + ': ' + i.qty + ' ks × ' + i.unitPrice + ' Kč (' + (i.qty * i.unitPrice) + ' Kč)';
+            }).join('\n');
+
+            const fullMessage = 
+                'Nová objednávka z webu U trubců:\n\n' +
+                'Zákazník: ' + name + '\n' +
+                'E-mail: ' + email + '\n' +
+                'Telefon: ' + phone + '\n' +
+                'Předání: ' + delivery + '\n' +
+                'Slevový kód: ' + (promoActive ? 'TRUBEC5 (aktivní)' : 'žádný') + '\n' +
+                'Poznámka: ' + (note || '—') + '\n\n' +
+                'Položky:\n' + itemsSummary + '\n\n' +
+                'CELKEM K ÚHRADĚ: ' + totalText;
+
+            const btn = document.getElementById('submit-order-btn');
+            btn.disabled = true;
+            btn.textContent = 'Odesílám včelám...';
+
+            if (WEB3FORMS_ACCESS_KEY) {
+                try {
+                    const res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({
+                            access_key: WEB3FORMS_ACCESS_KEY,
+                            subject: 'Nová objednávka U trubců — ' + name,
+                            from_name: 'Web U trubců',
+                            email: email,
+                            message: fullMessage
+                        })
+                    });
+                    if (res.ok) {
+                        finishOrderUI();
+                        return;
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+            // Záložní mailto varianta (funguje okamžitě i bez API klíče)
+            const mailtoUrl = 'mailto:radimsemerad@gmail.com?subject=' +
+                encodeURIComponent('Objednávka U trubců — ' + name) +
+                '&body=' + encodeURIComponent(fullMessage);
+            window.location.href = mailtoUrl;
+            finishOrderUI();
+        }
+
+        function finishOrderUI() {
+            cart.length = 0;
+            promoActive = false;
+            document.getElementById('cart-count').textContent = '0';
+            document.getElementById('cart-items').innerHTML = '';
+            document.getElementById('cart-summary-section').classList.add('hidden');
+            document.getElementById('order-success-box').classList.remove('hidden');
+            const btn = document.getElementById('submit-order-btn');
+            btn.disabled = false;
+            btn.textContent = 'Odeslat objednávku';
+            document.getElementById('checkout-form').reset();
+        }
+
+        function resetOrderSuccess() {
+            document.getElementById('order-success-box').classList.add('hidden');
+            renderCart();
+            toggleCart(false);
         }
 
         // --- SKRIPTY PRO EASTER EGG ---
