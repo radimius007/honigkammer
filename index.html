@@ -415,7 +415,7 @@
                 <p class="text-copper-300/60 text-xs">Váš košík je zatím prázdný.</p>
             </div>
 
-            <!-- Slevový kód a souhrn (zobrazí se, když je něco v košíku) -->
+            <!-- Slevový kód a souhrn -->
             <div id="cart-summary-section" class="hidden border-t border-copper-400/20 pt-4 space-y-4">
                 <div>
                     <label class="block text-[10px] uppercase tracking-[0.2em] text-copper-300/70 mb-1.5">Slevový kód</label>
@@ -832,7 +832,6 @@
         })();
 
         // --- KATALOG PRODUKTŮ A STROPY ZÁSOB ---
-        // Limity: Medy max 10 ks (souhrnně na kategorii med), Svíčky max 10 ks (souhrnně na kategorii svíčky), Dárková balení max 60 ks
         const PRODUCTS = {
             gift_b2c: { id: 'gift_b2c', name: 'Dárkové balení', unitPrice: 490, category: 'gift' },
             med_kvetovy: { id: 'med_kvetovy', name: 'Květový med', unitPrice: 240, category: 'honey' },
@@ -1072,9 +1071,8 @@
             }
         }
 
-        // --- ODESLÁNÍ OBJEDNÁVKY ---
-        // Poznámka: Pro přímé zasílání na e-mail bez otevírání e-mailového klienta vlož do konstanty WEB3FORMS_ACCESS_KEY klíč z https://web3forms.com (zdarma na 1 kliknutí na radimsemerad@gmail.com)
-        const WEB3FORMS_ACCESS_KEY = '';
+        // --- ODESLÁNÍ OBJEDNÁVKY PŘES WEB3FORMS ---
+        const WEB3FORMS_ACCESS_KEY = '3d98b678-f5d2-4f5f-b102-21548e9cc0a1';
 
         async function submitOrder(e) {
             e.preventDefault();
@@ -1128,7 +1126,7 @@
                 }
             }
 
-            // Záložní mailto varianta (funguje okamžitě i bez API klíče)
+            // Záložní mailto varianta
             const mailtoUrl = 'mailto:radimsemerad@gmail.com?subject=' +
                 encodeURIComponent('Objednávka U trubců — ' + name) +
                 '&body=' + encodeURIComponent(fullMessage);
